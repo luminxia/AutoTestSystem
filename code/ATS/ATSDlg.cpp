@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ATS.h"
 #include "ATSDlg.h"
+#include "RegisterDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -82,6 +83,7 @@ BEGIN_MESSAGE_MAP(CATSDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON_REGISTER, OnButtonRegister)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -167,4 +169,49 @@ void CATSDlg::OnPaint()
 HCURSOR CATSDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
+}
+
+void CATSDlg::OnButtonRegister() 
+{
+	// TODO: Add your control notification handler code here
+	RegisterDlg  dlg(NULL);
+	
+	dlg.DoModal();
+	
+	
+	/*if (dlg.flagcancel)
+	{
+		return ;
+	}
+	long	 stunum=atol(dlg.m_num);
+	CString  name=dlg.m_name;
+	CString  pwd=dlg.m_pwd;
+	CString  birth=dlg.m_birth;
+	CString  sex=dlg.theSex;
+	
+	//－－－－－－－－－－注册写入数据库－－－－－－－－
+	CString sqlstr="select * from Stu ";
+	theDB.m_pRecordset.CreateInstance(__uuidof(Recordset));
+	theDB.m_pRecordset=theDB.GetRecord(sqlstr);	
+	
+		  try 
+		  { 
+			  theDB.m_pRecordset->AddNew(); 
+			  theDB.m_pRecordset->PutCollect("name", _variant_t(name)); 
+			  theDB.m_pRecordset->PutCollect("pwd", _variant_t(pwd)); 
+			  theDB.m_pRecordset->PutCollect("sex", _variant_t(sex)); 
+			  theDB.m_pRecordset->PutCollect("birth", _variant_t(birth)); 
+			  
+			  theDB.m_pRecordset->PutCollect("num", stunum); 
+			  theDB.m_pRecordset->Update(); 
+			  
+			  AfxMessageBox("插入成功!"); 
+		  } 
+		  catch(_com_error *e) 
+		  { 
+			  AfxMessageBox(e->ErrorMessage()); 
+		  } 
+		  
+		  theDB.m_pRecordset->Close();*/
+
 }
