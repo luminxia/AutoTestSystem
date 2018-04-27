@@ -40,6 +40,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnButtonRegister();
+	afx_msg void OnButtonLogin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

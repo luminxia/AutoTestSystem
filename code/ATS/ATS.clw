@@ -2,22 +2,24 @@
 
 [General Info]
 Version=1
-LastClass=RegisterDlg
+LastClass=SelectClassDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=4
+ClassCount=5
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=4
-Resource1=IDD_ABOUTBOX
+ResourceCount=5
+Resource1=IDD_ATS_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ATS_DIALOG
+Resource3=IDD_REGISTER_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_REGISTER_DIALOG
+Resource4=IDD_ABOUTBOX
+Class5=SelectClassDlg
+Resource5=IDD_SELECT_CLASS_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -39,6 +41,7 @@ Type=0
 HeaderFile=ATSDlg.h
 ImplementationFile=ATSDlg.cpp
 Filter=D
+LastObject=CAboutDlg
 
 [DLG:IDD_ABOUTBOX]
 Type=1
@@ -89,5 +92,21 @@ HeaderFile=RegisterDlg.h
 ImplementationFile=RegisterDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDCANCEL
+LastObject=IDC_BUTTON_OK
+
+[DLG:IDD_SELECT_CLASS_DIALOG]
+Type=1
+Class=SelectClassDlg
+ControlCount=3
+Control1=IDC_RADIO_OPERATING_SYSTEM,button,1342177289
+Control2=IDC_RADIO_COMPOSITION_PRINCIPLE,button,1342177289
+Control3=IDC_BUTTON_SC_OK,button,1342242816
+
+[CLS:SelectClassDlg]
+Type=0
+HeaderFile=SelectClassDlg.h
+ImplementationFile=SelectClassDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON_SC_OK
 
