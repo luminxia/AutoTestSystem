@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ATS.h"
 #include "SelectClassDlg.h"
+#include "PaperDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -35,9 +36,16 @@ void SelectClassDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(SelectClassDlg, CDialog)
 	//{{AFX_MSG_MAP(SelectClassDlg)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDC_BUTTON_SC_OK, OnButtonScOk)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // SelectClassDlg message handlers
+
+void SelectClassDlg::OnButtonScOk() 
+{
+	// TODO: Add your control notification handler code here
+	PaperDlg dlg(NULL);
+	dlg.DoModal();
+}

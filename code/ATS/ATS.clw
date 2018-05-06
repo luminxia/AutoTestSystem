@@ -2,17 +2,17 @@
 
 [General Info]
 Version=1
-LastClass=SelectClassDlg
+LastClass=PaperDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=5
+ClassCount=6
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=5
+ResourceCount=6
 Resource1=IDD_ATS_DIALOG
 Resource2=IDR_MAINFRAME
 Resource3=IDD_REGISTER_DIALOG
@@ -20,6 +20,8 @@ Class4=RegisterDlg
 Resource4=IDD_ABOUTBOX
 Class5=SelectClassDlg
 Resource5=IDD_SELECT_CLASS_DIALOG
+Class6=PaperDlg
+Resource6=IDD_PAPER_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -109,4 +111,25 @@ ImplementationFile=SelectClassDlg.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=IDC_BUTTON_SC_OK
+VirtualFilter=dWC
+
+[DLG:IDD_PAPER_DIALOG]
+Type=1
+Class=PaperDlg
+ControlCount=7
+Control1=IDC_STATIC,static,1342308352
+Control2=IDC_EDIT_QUESTION,edit,1342244992
+Control3=IDC_RADIO_A,button,1342177289
+Control4=IDC_RADIO_B,button,1342177289
+Control5=IDC_RADIO_C,button,1342177289
+Control6=IDC_RADIO_D,button,1342177289
+Control7=IDC_BUTTON_NEXT,button,1342242816
+
+[CLS:PaperDlg]
+Type=0
+HeaderFile=PaperDlg.h
+ImplementationFile=PaperDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON_NEXT
 

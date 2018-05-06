@@ -143,6 +143,25 @@ BEGIN
     PUSHBUTTON      "确定",IDC_BUTTON_SC_OK,89,83,43,15
 END
 
+IDD_PAPER_DIALOG DIALOG DISCARDABLE  0, 0, 290, 188
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "试卷"
+FONT 10, "System"
+BEGIN
+    LTEXT           "Question",IDC_STATIC,40,27,38,15
+    EDITTEXT        IDC_EDIT_QUESTION,88,27,163,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    CONTROL         "Radio1",IDC_RADIO_A,"Button",BS_AUTORADIOBUTTON,85,52,
+                    162,15
+    CONTROL         "Radio1",IDC_RADIO_B,"Button",BS_AUTORADIOBUTTON,85,74,
+                    162,15
+    CONTROL         "Radio1",IDC_RADIO_C,"Button",BS_AUTORADIOBUTTON,85,96,
+                    162,15
+    CONTROL         "Radio1",IDC_RADIO_D,"Button",BS_AUTORADIOBUTTON,85,118,
+                    162,15
+    PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,223,155,40,13
+END
+
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -225,6 +244,14 @@ BEGIN
         RIGHTMARGIN, 221
         TOPMARGIN, 7
         BOTTOMMARGIN, 119
+    END
+
+    IDD_PAPER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 89
     END
 END
 #endif    // APSTUDIO_INVOKED

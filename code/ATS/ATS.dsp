@@ -102,6 +102,10 @@ SOURCE=.\ATSDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\PaperDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\RegisterDlg.cpp
 # End Source File
 # Begin Source File
@@ -124,6 +128,10 @@ SOURCE=.\ATS.h
 # Begin Source File
 
 SOURCE=.\ATSDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PaperDlg.h
 # End Source File
 # Begin Source File
 

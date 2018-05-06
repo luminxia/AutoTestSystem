@@ -9,6 +9,7 @@
 #define IDR_MAINFRAME                   128
 #define IDD_REGISTER_DIALOG             129
 #define IDD_SELECT_CLASS_DIALOG         130
+#define IDD_PAPER_DIALOG                131
 #define IDC_RADIO_STUDENT               1000
 #define IDC_RADIO_ADMINISTRATOR         1001
 #define IDC_STATIC_USER_NAME            1002
@@ -33,14 +34,20 @@
 #define IDC_STATIC_SEX                  1021
 #define IDC_BUTTON_OK                   1022
 #define IDC_RADIO_OPERATING_SYSTEM      1023
-#define IDC_RADIO_COMPOSITION_PRINCIPLE	1024
+#define IDC_RADIO_COMPOSITION_PRINCIPLE 1024
 #define IDC_BUTTON_SC_OK                1025
+#define IDC_EDIT_QUESTION               1026
+#define IDC_RADIO_A                     1027
+#define IDC_RADIO_B                     1028
+#define IDC_RADIO_C				        1029
+#define IDC_RADIO_D					    1030
+#define IDC_BUTTON_NEXT                 1031
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        131
+#define _APS_NEXT_RESOURCE_VALUE        132
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           101
