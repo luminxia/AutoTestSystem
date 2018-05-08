@@ -6,8 +6,15 @@
 --------------------Configuration: ATS - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating command line "rc.exe /l 0x804 /fo"Debug/ATS.res" /d "_DEBUG" /d "_AFXDLL" "F:\GIT\TESTGIT\AUTOTESTSYSTEM\CODE\ATS\ATS.rc"" 
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPE21A.tmp" with contents
+Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPE49E.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Git\testgit\AutoTestSystem\code\ATS\ATS.cpp"
+"F:\Git\testgit\AutoTestSystem\code\ATS\ATSDlg.cpp"
+"F:\Git\testgit\AutoTestSystem\code\ATS\Database.cpp"
+]
+Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPE49E.tmp" 
+Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPE49F.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ATS.pdb" /debug /machine:I386 /out:"Debug/ATS.exe" /pdbtype:sept 
 .\Debug\ATS.obj
@@ -17,11 +24,21 @@ Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPE21A.tmp" with con
 .\Debug\SelectClassDlg.obj
 .\Debug\StdAfx.obj
 .\Debug\ATS.res
+.\Debug\Database.obj
 ]
-Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPE21A.tmp"
+Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPE49F.tmp"
 <h3>Output Window</h3>
-Compiling resources...
+Compiling...
+ATSDlg.cpp
+Database.cpp
+Generating Code...
+Compiling...
+ATS.cpp
+Generating Code...
 Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ATS.bsc"  .\Debug\StdAfx.sbr .\Debug\ATS.sbr .\Debug\ATSDlg.sbr .\Debug\PaperDlg.sbr .\Debug\RegisterDlg.sbr .\Debug\SelectClassDlg.sbr .\Debug\Database.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
 
 
 

@@ -20,7 +20,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CATSDlg)
 	enum { IDD = IDD_ATS_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_user_name;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -43,6 +43,9 @@ protected:
 	afx_msg void OnButtonLogin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	bool Login();
 };
 
 //{{AFX_INSERT_LOCATION}}

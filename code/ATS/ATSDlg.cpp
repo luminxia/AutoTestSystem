@@ -65,7 +65,7 @@ CATSDlg::CATSDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CATSDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CATSDlg)
-		// NOTE: the ClassWizard will add member initialization here
+	m_user_name = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -75,7 +75,7 @@ void CATSDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CATSDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_EDIT_USER_NAME, m_user_name);
 	//}}AFX_DATA_MAP
 }
 
@@ -183,6 +183,50 @@ void CATSDlg::OnButtonRegister()
 void CATSDlg::OnButtonLogin() 
 {
 	// TODO: Add your control notification handler code here
-	SelectClassDlg  dlg(NULL);
-	dlg.DoModal();
+	if(! Login())
+	{
+		/*theDB.ExitConnect();
+		return ;*/
+	}
+}
+
+bool CATSDlg::Login()
+{
+	UpdateData(TRUE);
+	if(m_user_name.IsEmpty())
+	{
+		AfxMessageBox("用户名不能为空");
+		return false;
+	}
+	/*if(m_pwd.IsEmpty())
+	{
+		AfxMessageBox("密码不能为空");
+		return  FALSE;
+	}
+	int selec=GetCheckedRadioButton(IDC_RADIO1,IDC_RADIO2);
+	if(selec==0)
+	{	MessageBox("选择登陆方式！");
+	return FALSE;
+	}
+	else if(selec==IDC_RADIO1)
+		selctid = Stu_;
+	else
+		selctid = Adm_;
+	
+	
+	
+	CString sqlstr;
+	if (selctid == Stu_)
+		sqlstr="select * from Stu where num="+m_name+" and pwd= '"+m_pwd+"'";
+	else 
+		sqlstr="select * from Adm where name='"+m_name+"' and pwd= '"+m_pwd+"'";
+	
+	theDB.m_pRecordset=theDB.GetRecord(sqlstr);
+	if(theDB.m_pRecordset->adoEOF)
+	{
+		MessageBox("用户名不存在!");
+		return FALSE;
+	}*/
+	
+    return true;
 }
