@@ -66,6 +66,7 @@ CATSDlg::CATSDlg(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CATSDlg)
 	m_user_name = _T("");
+	m_password = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -76,6 +77,7 @@ void CATSDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CATSDlg)
 	DDX_Text(pDX, IDC_EDIT_USER_NAME, m_user_name);
+	DDX_Text(pDX, IDC_EDIT_PASSWORD, m_password);
 	//}}AFX_DATA_MAP
 }
 
@@ -190,6 +192,7 @@ void CATSDlg::OnButtonLogin()
 	}
 }
 
+// 判断是否登录成功
 bool CATSDlg::Login()
 {
 	UpdateData(TRUE);
@@ -198,31 +201,32 @@ bool CATSDlg::Login()
 		AfxMessageBox("用户名不能为空");
 		return false;
 	}
-	/*if(m_pwd.IsEmpty())
+
+	if(m_password.IsEmpty())
 	{
 		AfxMessageBox("密码不能为空");
-		return  FALSE;
+		return false;
 	}
-	int selec=GetCheckedRadioButton(IDC_RADIO1,IDC_RADIO2);
-	if(selec==0)
-	{	MessageBox("选择登陆方式！");
-	return FALSE;
+
+	int select = GetCheckedRadioButton(IDC_RADIO_STUDENT, IDC_RADIO_ADMINISTRATOR);
+	if(select == 0)
+	{
+		MessageBox("选择登陆方式");
+		return false;
 	}
-	else if(selec==IDC_RADIO1)
-		selctid = Stu_;
+	else if(select == IDC_RADIO_STUDENT)
+		selectId = Student;
 	else
-		selctid = Adm_;
+		selectId = Administrator;
 	
-	
-	
-	CString sqlstr;
-	if (selctid == Stu_)
-		sqlstr="select * from Stu where num="+m_name+" and pwd= '"+m_pwd+"'";
+	CString sqlStr;
+	if (selectId == Student)
+		sqlStr = "select * from Student where stuNum=" + m_user_name + " and password= '" + m_password + "'";
 	else 
-		sqlstr="select * from Adm where name='"+m_name+"' and pwd= '"+m_pwd+"'";
+		sqlStr = "select * from Administrator where stuNum=" + m_user_name + " and password= '" + m_password + "'";
 	
-	theDB.m_pRecordset=theDB.GetRecord(sqlstr);
-	if(theDB.m_pRecordset->adoEOF)
+	//dB.m_pRecordset = dB.GetRecord(sqlStr);
+	/*if(theDB.m_pRecordset->adoEOF)
 	{
 		MessageBox("用户名不存在!");
 		return FALSE;

@@ -8,6 +8,8 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include "PaperDlg.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // CATSDlg dialog
 
@@ -21,6 +23,7 @@ public:
 	//{{AFX_DATA(CATSDlg)
 	enum { IDD = IDD_ATS_DIALOG };
 	CString	m_user_name;
+	CString	m_password;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -45,7 +48,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
+	// 判断是否登录成功
 	bool Login();
+
+	// 选择的身份
+	Identity selectId;
+	// 数据库对象
+	//Database dB;
 };
 
 //{{AFX_INSERT_LOCATION}}

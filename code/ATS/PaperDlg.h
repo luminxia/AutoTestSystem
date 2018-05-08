@@ -10,6 +10,14 @@
 /////////////////////////////////////////////////////////////////////////////
 // PaperDlg dialog
 
+// 身份枚举变量
+enum Identity
+{
+	Nobody,
+	Student,
+	Administrator
+};
+
 class PaperDlg : public CDialog
 {
 // Construction
