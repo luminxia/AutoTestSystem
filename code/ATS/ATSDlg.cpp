@@ -221,9 +221,9 @@ bool CATSDlg::Login()
 	
 	CString sqlStr;
 	if (selectId == Student)
-		sqlStr = "select * from Student where stuNum=" + m_user_name + " and password= '" + m_password + "'";
+		sqlStr = "select * from Student where stu_num=" + m_user_name + " and password= '" + m_password + "'";
 	else 
-		sqlStr = "select * from Administrator where stuNum=" + m_user_name + " and password= '" + m_password + "'";
+		sqlStr = "select * from Administrator where stu_num=" + m_user_name + " and password= '" + m_password + "'";
 	
 	//dB.m_pRecordset = dB.GetRecord(sqlStr);
 	/*if(theDB.m_pRecordset->adoEOF)
