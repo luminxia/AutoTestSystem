@@ -9,6 +9,7 @@
 #endif // _MSC_VER > 1000
 
 #include "PaperDlg.h"
+#include "Database.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CATSDlg dialog
@@ -51,10 +52,12 @@ public:
 	// 判断是否登录成功
 	bool Login();
 
+	// 字体变量
+	CFont font;
 	// 选择的身份
 	Identity selectId;
 	// 数据库对象
-	//Database dB;
+	Database dB;
 };
 
 //{{AFX_INSERT_LOCATION}}

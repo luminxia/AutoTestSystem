@@ -25,3 +25,57 @@ Database::~Database()
 {
 
 }
+
+// 初始化数据库连接
+void Database::OnInitADOConn()
+{
+	CoInitialize(NULL);
+	pConnection.CreateInstance(__uuidof(Connection)); 
+	
+	try 
+	{ 
+		pConnection->Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=ATS.mdb","","",adModeUnknown); 
+	} 
+	catch(_com_error e) 
+	{ 
+		AfxMessageBox("数据库连接失败"); 
+	}
+}
+
+// 获得记录
+_RecordsetPtr Database::GetRecord(CString strSql)
+{
+	if (pRecordset==NULL)
+	{
+		OnInitADOConn();
+		
+		pRecordset.CreateInstance(__uuidof(Recordset)); 
+	}
+	pRecordset.CreateInstance(__uuidof(Recordset)); 
+	
+	BSTR bstrSQL = strSql.AllocSysString(); 
+	try 
+	{ 
+		pRecordset->Open(bstrSQL, 
+			pConnection.GetInterfacePtr(), 
+			adOpenDynamic, 
+			adLockOptimistic, 
+			adCmdText); 
+	} 
+	catch(_com_error *e) 
+	{ 
+		AfxMessageBox(e->ErrorMessage()); 
+	} 
+
+	return pRecordset;
+}
+
+// 退出连接
+void Database::ExitConnect()
+{
+    if(pRecordset!=NULL) pRecordset->Close();
+	pConnection->Close();
+	pRecordset =NULL ;
+	pConnection =NULL;
+	CoUninitialize();
+}

@@ -122,7 +122,12 @@ BOOL CATSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	// TODO: Add extra initialization here
-	
+
+	dB.OnInitADOConn();
+
+	font.CreatePointFont(200, _T("宋体"));
+    GetDlgItem(IDC_STATIC_ATUO_TEST_SYSTEM)->SetFont(&font);
+
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -182,13 +187,14 @@ void CATSDlg::OnButtonRegister()
 	dlg.DoModal();
 }
 
+// 登录
 void CATSDlg::OnButtonLogin() 
 {
 	// TODO: Add your control notification handler code here
 	if(! Login())
 	{
-		/*theDB.ExitConnect();
-		return ;*/
+		dB.ExitConnect();
+		return ;
 	}
 }
 
@@ -223,14 +229,14 @@ bool CATSDlg::Login()
 	if (selectId == Student)
 		sqlStr = "select * from Student where stu_num=" + m_user_name + " and password= '" + m_password + "'";
 	else 
-		sqlStr = "select * from Administrator where stu_num=" + m_user_name + " and password= '" + m_password + "'";
+		sqlStr = "select * from Administrator where adm_name=" + m_user_name + " and password= '" + m_password + "'";
 	
-	//dB.m_pRecordset = dB.GetRecord(sqlStr);
-	/*if(theDB.m_pRecordset->adoEOF)
+	dB.pRecordset = dB.GetRecord(sqlStr);
+	if(dB.pRecordset->adoEOF)
 	{
 		MessageBox("用户名不存在!");
-		return FALSE;
-	}*/
+		return false;
+	}
 	
     return true;
 }

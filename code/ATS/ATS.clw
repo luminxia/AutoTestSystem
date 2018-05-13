@@ -13,13 +13,13 @@ Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=6
-Resource1=IDD_REGISTER_DIALOG
+Resource1=IDD_ABOUTBOX
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ABOUTBOX
+Resource3=IDD_REGISTER_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_ATS_DIALOG
+Resource4=IDD_SELECT_CLASS_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_SELECT_CLASS_DIALOG
+Resource5=IDD_ATS_DIALOG
 Class6=PaperDlg
 Resource6=IDD_PAPER_DIALOG
 
