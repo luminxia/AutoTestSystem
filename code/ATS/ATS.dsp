@@ -118,6 +118,10 @@ SOURCE=.\RegisterDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Score.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\SelectClassDlg.cpp
 # End Source File
 # Begin Source File
@@ -156,6 +160,10 @@ SOURCE=.\RegisterDlg.h
 # Begin Source File
 
 SOURCE=.\Resource.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Score.h
 # End Source File
 # Begin Source File
 

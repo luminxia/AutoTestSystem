@@ -2,26 +2,27 @@
 
 [General Info]
 Version=1
-LastClass=CATSDlg
+LastClass=CScore
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=6
+ClassCount=7
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=7
-Resource1=IDD_SELECT_CLASS_DIALOG
+Resource1=IDD_PAPER_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ABOUTBOX
+Resource3=IDD_ATS_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_REGISTER_DIALOG
+Resource4=IDD_SELECT_CLASS_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_PAPER_DIALOG
+Resource5=IDD_ABOUTBOX
 Class6=PaperDlg
-Resource6=IDD_ATS_DIALOG
+Resource6=IDD_REGISTER_DIALOG
+Class7=CScore
 Resource7=IDD_SCORE_DIALOG
 
 [CLS:CATSApp]
@@ -35,7 +36,7 @@ Type=0
 HeaderFile=ATSDlg.h
 ImplementationFile=ATSDlg.cpp
 Filter=D
-LastObject=IDC_EDIT_PASSWORD
+LastObject=CATSDlg
 BaseClass=CDialog
 VirtualFilter=dWC
 
@@ -136,8 +137,21 @@ LastObject=IDC_BUTTON_NEXT
 
 [DLG:IDD_SCORE_DIALOG]
 Type=1
-Class=?
-ControlCount=2
-Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
+Class=CScore
+ControlCount=7
+Control1=IDC_STATIC_STUDENT_NUMBER,static,1342308352
+Control2=IDC_STATIC_SCORE,static,1342308352
+Control3=IDC_STATIC_CLASS,static,1342308352
+Control4=IDC_EDIT_STUDENT_NUMBER,edit,1350631552
+Control5=IDC_EDIT_SCORE,edit,1350631552
+Control6=IDC_EDIT_CLASS,edit,1350631552
+Control7=IDC_BUTTON_S_OK,button,1342242816
+
+[CLS:CScore]
+Type=0
+HeaderFile=Score.h
+ImplementationFile=Score.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CScore
 

@@ -43,6 +43,11 @@
 #define IDC_RADIO_C                     1029
 #define IDC_RADIO_D                     1030
 #define IDC_BUTTON_NEXT                 1031
+#define IDC_STATIC_SCORE				1032
+#define IDC_STATIC_CLASS				1033
+#define IDC_EDIT_SCORE					1034
+#define IDC_EDIT_CLASS					1035
+#define IDC_BUTTON_S_OK					1036
 
 // Next default values for new objects
 // 
