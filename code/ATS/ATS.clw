@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CScore
+LastClass=ScoreDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
@@ -13,16 +13,16 @@ Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=7
-Resource1=IDD_PAPER_DIALOG
+Resource1=IDD_ATS_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ATS_DIALOG
+Resource3=IDD_SELECT_CLASS_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_SELECT_CLASS_DIALOG
+Resource4=IDD_ABOUTBOX
 Class5=SelectClassDlg
-Resource5=IDD_ABOUTBOX
+Resource5=IDD_REGISTER_DIALOG
 Class6=PaperDlg
-Resource6=IDD_REGISTER_DIALOG
-Class7=CScore
+Resource6=IDD_PAPER_DIALOG
+Class7=ScoreDlg
 Resource7=IDD_SCORE_DIALOG
 
 [CLS:CATSApp]
@@ -137,7 +137,7 @@ LastObject=IDC_BUTTON_NEXT
 
 [DLG:IDD_SCORE_DIALOG]
 Type=1
-Class=CScore
+Class=ScoreDlg
 ControlCount=7
 Control1=IDC_STATIC_STUDENT_NUMBER,static,1342308352
 Control2=IDC_STATIC_SCORE,static,1342308352
@@ -147,11 +147,12 @@ Control5=IDC_EDIT_SCORE,edit,1350631552
 Control6=IDC_EDIT_CLASS,edit,1350631552
 Control7=IDC_BUTTON_S_OK,button,1342242816
 
-[CLS:CScore]
+[CLS:ScoreDlg]
 Type=0
-HeaderFile=Score.h
-ImplementationFile=Score.cpp
+HeaderFile=ScoreDlg.h
+ImplementationFile=ScoreDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CScore
+LastObject=IDC_BUTTON_S_OK
+VirtualFilter=dWC
 

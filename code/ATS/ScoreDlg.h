@@ -1,31 +1,33 @@
-#if !defined(AFX_SCORE_H__4373C9D0_3A11_4D55_85BF_ABD9777FCBDA__INCLUDED_)
-#define AFX_SCORE_H__4373C9D0_3A11_4D55_85BF_ABD9777FCBDA__INCLUDED_
+#if !defined(AFX_SCOREDLG_H__9C777B24_8D39_4471_986D_A5D7CC3F1961__INCLUDED_)
+#define AFX_SCOREDLG_H__9C777B24_8D39_4471_986D_A5D7CC3F1961__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// Score.h : header file
+// ScoreDlg.h : header file
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CScore dialog
+// ScoreDlg dialog
 
-class CScore : public CDialog
+class ScoreDlg : public CDialog
 {
 // Construction
 public:
-	CScore(CWnd* pParent = NULL);   // standard constructor
+	ScoreDlg(CWnd* pParent = NULL, CString stu_num = "", CString theClass = "", int score = 0);   // standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CScore)
+	//{{AFX_DATA(ScoreDlg)
 	enum { IDD = IDD_SCORE_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_class;
+	CString	m_score;
+	CString	m_stu_num;
 	//}}AFX_DATA
 
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CScore)
+	//{{AFX_VIRTUAL(ScoreDlg)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
@@ -34,7 +36,7 @@ public:
 protected:
 
 	// Generated message map functions
-	//{{AFX_MSG(CScore)
+	//{{AFX_MSG(ScoreDlg)
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
@@ -43,4 +45,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_SCORE_H__4373C9D0_3A11_4D55_85BF_ABD9777FCBDA__INCLUDED_)
+#endif // !defined(AFX_SCOREDLG_H__9C777B24_8D39_4471_986D_A5D7CC3F1961__INCLUDED_)

@@ -118,7 +118,7 @@ SOURCE=.\RegisterDlg.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Score.cpp
+SOURCE=.\ScoreDlg.cpp
 # End Source File
 # Begin Source File
 
@@ -163,7 +163,7 @@ SOURCE=.\Resource.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\Score.h
+SOURCE=.\ScoreDlg.h
 # End Source File
 # Begin Source File
 

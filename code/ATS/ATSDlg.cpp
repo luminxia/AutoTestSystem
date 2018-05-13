@@ -7,6 +7,7 @@
 #include "RegisterDlg.h"
 #include "SelectClassDlg.h"
 #include "Question.h"
+#include "ScoreDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -203,9 +204,9 @@ void CATSDlg::OnButtonLogin()
 	// 身份判断
 	if(selectId == Student)
 	{
-		SelectClassDlg dlg;
-		dlg.DoModal();
-		if(dlg.selectClass == 1)
+		SelectClassDlg scDlg;
+		scDlg.DoModal();
+		if(scDlg.selectClass == 1)
 		{
 			className = "英语";
 		}
@@ -256,11 +257,10 @@ void CATSDlg::OnButtonLogin()
 		}
 		
 		// 成绩
+		ScoreDlg sDlg(NULL, m_user_name, className, scoreSum);
+		sDlg.DoModal();
 		
-		/*Finish  fdlg(NULL,m_name,myclassname,mainscoresum);
-		fdlg.DoModal();
-		
-	}*/
+	//}
 	/*else 
 	{
 		MessageBox("管理员!");
@@ -285,7 +285,6 @@ void CATSDlg::OnButtonLogin()
 	
 	dB.ExitConnect();
 	Invalidate(TRUE);
-
 }
 
 // 判断是否登录成功
