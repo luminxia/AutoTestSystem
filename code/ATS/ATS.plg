@@ -6,36 +6,55 @@
 --------------------Configuration: ATS - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPEC9C.tmp" with contents
+Creating command line "rc.exe /l 0x804 /fo"Debug/ATS.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\thinkpad\Desktop\ATS\ATS.rc"" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSPB0.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"F:\Git\testgit\AutoTestSystem\code\ATS\ATS.cpp"
-"F:\Git\testgit\AutoTestSystem\code\ATS\ATSDlg.cpp"
-"F:\Git\testgit\AutoTestSystem\code\ATS\Database.cpp"
+"C:\Users\thinkpad\Desktop\ATS\ATS.cpp"
+"C:\Users\thinkpad\Desktop\ATS\ATSDlg.cpp"
+"C:\Users\thinkpad\Desktop\ATS\Database.cpp"
+"C:\Users\thinkpad\Desktop\ATS\PaperDlg.cpp"
+"C:\Users\thinkpad\Desktop\ATS\Question.cpp"
+"C:\Users\thinkpad\Desktop\ATS\RegisterDlg.cpp"
+"C:\Users\thinkpad\Desktop\ATS\SelectClassDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPEC9C.tmp" 
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPEC9D.tmp" with contents
+Creating command line "cl.exe @C:\Users\thinkpad\AppData\Local\Temp\RSPB0.tmp" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSPC0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\thinkpad\Desktop\ATS\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\thinkpad\AppData\Local\Temp\RSPC0.tmp" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSPC1.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ATS.pdb" /debug /machine:I386 /out:"Debug/ATS.exe" /pdbtype:sept 
 .\Debug\ATS.obj
 .\Debug\ATSDlg.obj
 .\Debug\Database.obj
 .\Debug\PaperDlg.obj
+.\Debug\Question.obj
 .\Debug\RegisterDlg.obj
 .\Debug\SelectClassDlg.obj
 .\Debug\StdAfx.obj
 .\Debug\ATS.res
 ]
-Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPEC9D.tmp"
+Creating command line "link.exe @C:\Users\thinkpad\AppData\Local\Temp\RSPC1.tmp"
 <h3>Output Window</h3>
+Compiling resources...
 Compiling...
+StdAfx.cpp
+c:\users\thinkpad\desktop\ats\debug\msado15.tlh(476) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+Compiling...
+ATS.cpp
 ATSDlg.cpp
 Database.cpp
+PaperDlg.cpp
+Question.cpp
+RegisterDlg.cpp
+SelectClassDlg.cpp
 Generating Code...
-Skipping... (no relevant changes detected)
-ATS.cpp
 Linking...
-Creating command line "bscmake.exe /nologo /o"Debug/ATS.bsc"  .\Debug\StdAfx.sbr .\Debug\ATS.sbr .\Debug\ATSDlg.sbr .\Debug\Database.sbr .\Debug\PaperDlg.sbr .\Debug\RegisterDlg.sbr .\Debug\SelectClassDlg.sbr"
+Creating command line "bscmake.exe /nologo /o"Debug/ATS.bsc"  .\Debug\StdAfx.sbr .\Debug\ATS.sbr .\Debug\ATSDlg.sbr .\Debug\Database.sbr .\Debug\PaperDlg.sbr .\Debug\Question.sbr .\Debug\RegisterDlg.sbr .\Debug\SelectClassDlg.sbr"
 Creating browse info file...
 <h3>Output Window</h3>
 

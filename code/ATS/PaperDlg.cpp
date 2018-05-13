@@ -15,11 +15,23 @@ static char THIS_FILE[] = __FILE__;
 // PaperDlg dialog
 
 
-PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/)
+PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/, Question *q)
 	: CDialog(PaperDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(PaperDlg)
 		// NOTE: the ClassWizard will add member initialization here
+
+	question = q->question;
+	a = q->choice_a;
+	b = q->choice_b;
+	c = q->choice_c;
+	d = q->choice_d;
+	for(int i = 0; i < 4; i++)
+	{
+		score[i]=q->score[i];
+	}
+	scoreSum=0;
+
 	//}}AFX_DATA_INIT
 }
 

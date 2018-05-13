@@ -38,6 +38,10 @@ protected:
 	afx_msg void OnButtonScOk();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	// Ñ¡Ôñ¿Î³Ì
+	int selectClass;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -51,6 +51,8 @@ protected:
 public:
 	// 判断是否登录成功
 	bool Login();
+	// 判断是否创建试卷
+	bool CreatePaper();
 
 	// 字体变量
 	CFont font;
@@ -58,6 +60,10 @@ public:
 	Identity selectId;
 	// 数据库对象
 	Database dB;
+	// 类型名
+	CString className;
+	// 总分数
+	long scoreSum;
 };
 
 //{{AFX_INSERT_LOCATION}}

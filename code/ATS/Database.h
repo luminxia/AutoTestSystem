@@ -21,6 +21,8 @@ public:
 	_RecordsetPtr GetRecord(CString strSql);
 	// 退出连接
 	void ExitConnect();
+	// 命令
+	void MyCommand(CString strSql);
 
 	// 连接指针
 	_ConnectionPtr pConnection;

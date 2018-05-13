@@ -6,6 +6,7 @@
 #include "ATSDlg.h"
 #include "RegisterDlg.h"
 #include "SelectClassDlg.h"
+#include "Question.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -123,6 +124,8 @@ BOOL CATSDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 
+	scoreSum = 0;
+
 	dB.OnInitADOConn();
 
 	font.CreatePointFont(200, _T("宋体"));
@@ -194,8 +197,95 @@ void CATSDlg::OnButtonLogin()
 	if(! Login())
 	{
 		dB.ExitConnect();
-		return ;
+		return;
 	}
+
+	// 身份判断
+	if(selectId == Student)
+	{
+		SelectClassDlg dlg;
+		dlg.DoModal();
+		if(dlg.selectClass == 1)
+		{
+			className = "英语";
+		}
+		else
+		{
+			className = "计算机";
+		}
+		
+		dB.pRecordset.CreateInstance(__uuidof(Recordset));
+		CString strSql = "select * from Score where course_name ='"+className+"'and stu_num="+m_user_name+" ";
+		dB.MyCommand(strSql);
+
+		if (!dB.pRecordset->adoEOF)
+		{
+			MessageBox("该科成绩已存在");
+			return;
+		}
+		
+		dB.pRecordset->Close();
+
+		// Paper
+		if(!CreatePaper())
+		{
+			MessageBox("CreaePaper Failed !");
+			return;
+		}
+		else 
+		{
+			// 写入成绩
+			dB.pRecordset.CreateInstance(__uuidof(Recordset));
+			CString sqlstr="select * from Score";
+			dB.GetRecord(sqlstr);
+			
+			try
+			{
+				dB.pRecordset->AddNew();
+				dB.pRecordset->PutCollect("course_name", _variant_t(className));
+				dB.pRecordset->PutCollect("score", scoreSum);
+				dB.pRecordset->PutCollect("stu_num", atol(m_user_name));
+				dB.pRecordset->Update();
+				
+				AfxMessageBox("插入成功!");
+			}
+			catch(_com_error *e)
+			{
+				AfxMessageBox(e->ErrorMessage());
+			}
+		}
+		
+		// 成绩
+		
+		/*Finish  fdlg(NULL,m_name,myclassname,mainscoresum);
+		fdlg.DoModal();
+		
+	}*/
+	/*else 
+	{
+		MessageBox("管理员!");
+		SelectMana  managedlg;
+		managedlg.DoModal();
+		if (managedlg.managesel==1)
+		{
+			//－－－－－学生信息管理－－－－－
+			if(!StuManageFace())
+				MessageBox("学生信息管理报错!!!");
+			Invalidate(TRUE);
+			return ;
+		}
+		else 
+		{
+			//－－－－－试卷信息管理－－－－－
+			if(!PaperManageFace())
+				MessageBox("试卷信息管理报错!!!");
+			return ;
+		}*/
+	}
+	
+	dB.ExitConnect();
+	Invalidate(TRUE);
+
 }
 
 // 判断是否登录成功
@@ -220,15 +310,13 @@ bool CATSDlg::Login()
 		MessageBox("选择登陆方式");
 		return false;
 	}
-	else if(select == IDC_RADIO_STUDENT)
-		selectId = Student;
-	else
-		selectId = Administrator;
+	else if(select == IDC_RADIO_STUDENT) selectId = Student;
+	else selectId = Administrator;
 	
 	CString sqlStr;
 	if (selectId == Student)
 		sqlStr = "select * from Student where stu_num=" + m_user_name + " and password= '" + m_password + "'";
-	else 
+	else
 		sqlStr = "select * from Administrator where adm_name=" + m_user_name + " and password= '" + m_password + "'";
 	
 	dB.pRecordset = dB.GetRecord(sqlStr);
@@ -239,4 +327,65 @@ bool CATSDlg::Login()
 	}
 	
     return true;
+}
+
+// 判断是否创建试卷
+bool CATSDlg::CreatePaper()
+{
+	SetTimer(1, 1000, NULL);
+	SetTimer(2, 540000, NULL);
+	SetTimer(3, 600000, NULL);
+	
+	CString strSql = "select * from Paper where course_name ='"+className+"'";
+	
+	dB.MyCommand(strSql);
+	
+	int questionCount =0 ;
+	
+	_variant_t var;
+	Question q;
+	
+	while(!dB.pRecordset->adoEOF)
+	{
+		var = dB.pRecordset->GetCollect("question");
+		if(var.vt != VT_NULL)
+			q.question= (LPCSTR)_bstr_t(var);
+		
+		var = dB.pRecordset->GetCollect("choice_a");
+		if(var.vt != VT_NULL)
+			q.choice_a = (LPCSTR)_bstr_t(var);
+		var = dB.pRecordset->GetCollect("choice_b");
+		if(var.vt != VT_NULL)
+			q.choice_b = (LPCSTR)_bstr_t(var);
+		var = dB.pRecordset->GetCollect("choice_c");
+		if(var.vt != VT_NULL)
+			q.choice_c = (LPCSTR)_bstr_t(var);
+		var = dB.pRecordset->GetCollect("choice_d");
+		if(var.vt != VT_NULL)
+			q.choice_d = (LPCSTR)_bstr_t(var);
+		
+		_variant_t var;
+		var = dB.pRecordset->GetCollect("score_a");
+		if(var.vt != VT_NULL)
+			q.score[0] = (long)var;
+		var = dB.pRecordset->GetCollect("score_b");
+		if(var.vt != VT_NULL)
+			q.score[1] = var.lVal;
+		var = dB.pRecordset->GetCollect("score_c");
+		if(var.vt != VT_NULL)
+			q.score[2] = var.lVal;
+		var = dB.pRecordset->GetCollect("score_d");
+		if(var.vt != VT_NULL)
+			q.score[3] = var.lVal;
+		
+		PaperDlg paper(NULL, &q);
+		paper.DoModal();
+		
+		// finish分数
+		scoreSum += paper.scoreSum;
+		dB.pRecordset->MoveNext();
+		questionCount++;
+	}
+	dB.pRecordset->Close();
+	return true;
 }

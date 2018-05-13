@@ -30,15 +30,15 @@ Database::~Database()
 void Database::OnInitADOConn()
 {
 	CoInitialize(NULL);
-	pConnection.CreateInstance(__uuidof(Connection)); 
+	pConnection.CreateInstance(__uuidof(Connection));
 	
-	try 
-	{ 
-		pConnection->Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=ATS.mdb","","",adModeUnknown); 
-	} 
-	catch(_com_error e) 
-	{ 
-		AfxMessageBox("数据库连接失败"); 
+	try
+	{
+		pConnection->Open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=ATS.mdb","","",adModeUnknown);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox("数据库连接失败");
 	}
 }
 
@@ -49,23 +49,23 @@ _RecordsetPtr Database::GetRecord(CString strSql)
 	{
 		OnInitADOConn();
 		
-		pRecordset.CreateInstance(__uuidof(Recordset)); 
+		pRecordset.CreateInstance(__uuidof(Recordset));
 	}
-	pRecordset.CreateInstance(__uuidof(Recordset)); 
+	pRecordset.CreateInstance(__uuidof(Recordset));
 	
-	BSTR bstrSQL = strSql.AllocSysString(); 
-	try 
-	{ 
-		pRecordset->Open(bstrSQL, 
-			pConnection.GetInterfacePtr(), 
-			adOpenDynamic, 
-			adLockOptimistic, 
-			adCmdText); 
-	} 
-	catch(_com_error *e) 
-	{ 
-		AfxMessageBox(e->ErrorMessage()); 
-	} 
+	BSTR bstrSQL = strSql.AllocSysString();
+	try
+	{
+		pRecordset->Open(bstrSQL,
+			pConnection.GetInterfacePtr(),
+			adOpenDynamic,
+			adLockOptimistic,
+			adCmdText);
+	}
+	catch(_com_error *e)
+	{
+		AfxMessageBox(e->ErrorMessage());
+	}
 
 	return pRecordset;
 }
@@ -78,4 +78,18 @@ void Database::ExitConnect()
 	pRecordset =NULL ;
 	pConnection =NULL;
 	CoUninitialize();
+}
+
+// 命令
+void Database::MyCommand(CString strSql)
+{
+	BSTR bstrSQL = strSql.AllocSysString();
+
+	// 命令指针
+	_CommandPtr pCommand;
+	pCommand.CreateInstance(__uuidof(Command));
+	pCommand->ActiveConnection = pConnection;
+	pCommand->CommandText = bstrSQL;
+	pRecordset = pCommand->Execute(NULL, NULL,adCmdText);
+	AfxMessageBox("CMD Success!");
 }

@@ -10,6 +10,8 @@
 /////////////////////////////////////////////////////////////////////////////
 // PaperDlg dialog
 
+#include "Question.h"
+
 // 身份枚举变量
 enum Identity
 {
@@ -22,7 +24,7 @@ class PaperDlg : public CDialog
 {
 // Construction
 public:
-	PaperDlg(CWnd* pParent = NULL);   // standard constructor
+	PaperDlg(CWnd* pParent = NULL, Question *q = NULL);   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(PaperDlg)
@@ -46,6 +48,17 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	// 总分数
+	int scoreSum;
+	// 问题和选项
+	CString question, a, b, c, d;
+	// 成绩
+	int score[4];
+	
+	//Identity selectId;
+	//CString className;
 };
 
 //{{AFX_INSERT_LOCATION}}

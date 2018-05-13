@@ -12,16 +12,17 @@ Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=6
-Resource1=IDD_ABOUTBOX
+ResourceCount=7
+Resource1=IDD_SELECT_CLASS_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_REGISTER_DIALOG
+Resource3=IDD_ABOUTBOX
 Class4=RegisterDlg
-Resource4=IDD_SELECT_CLASS_DIALOG
+Resource4=IDD_REGISTER_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_ATS_DIALOG
+Resource5=IDD_PAPER_DIALOG
 Class6=PaperDlg
-Resource6=IDD_PAPER_DIALOG
+Resource6=IDD_ATS_DIALOG
+Resource7=IDD_SCORE_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -132,4 +133,11 @@ ImplementationFile=PaperDlg.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=IDC_BUTTON_NEXT
+
+[DLG:IDD_SCORE_DIALOG]
+Type=1
+Class=?
+ControlCount=2
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
 
