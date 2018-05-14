@@ -126,8 +126,16 @@ SOURCE=.\SelectClassDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\SelectManagerDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\StudentManagerDlg.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -171,7 +179,15 @@ SOURCE=.\SelectClassDlg.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\SelectManagerDlg.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StudentManagerDlg.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

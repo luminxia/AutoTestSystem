@@ -93,3 +93,55 @@ void Database::MyCommand(CString strSql)
 	pRecordset = pCommand->Execute(NULL, NULL,adCmdText);
 	AfxMessageBox("CMD Success!");
 }
+
+// 获取记录数量
+int Database::GetRecordNum(CString fromTable)
+{
+	BSTR bstrSQL = fromTable.AllocSysString(); 
+	
+	_variant_t RecordsAffected;
+    pRecordset = pConnection->Execute(bstrSQL, &RecordsAffected, adCmdText);
+    _variant_t vIndex = (long)0;
+    _variant_t vCount = pRecordset->GetCollect(vIndex);
+	return (long)vCount;
+}
+
+// 获取问题
+Question* Database::GetQuestion(long questionId)
+{
+	int i = questionId - 1;
+	pRecordset->MoveFirst();
+	pRecordset->Move(i);
+	var = pRecordset->GetCollect("question"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.question= (LPCSTR)_bstr_t(var); 
+	
+	var = pRecordset->GetCollect("choice_a"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.choice_a = (LPCSTR)_bstr_t(var); 
+	var = pRecordset->GetCollect("choice_b"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.choice_b = (LPCSTR)_bstr_t(var); 
+	var = pRecordset->GetCollect("choice_c"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.choice_c = (LPCSTR)_bstr_t(var); 
+	var = pRecordset->GetCollect("choice_d"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.choice_d = (LPCSTR)_bstr_t(var); 
+	
+	
+	var = pRecordset->GetCollect("score_a"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.score[0] = (long)var;	
+	var = pRecordset->GetCollect("score_b"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.score[1] = var.lVal; 	
+	var = pRecordset->GetCollect("score_c"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.score[2] = var.lVal; 
+	var = pRecordset->GetCollect("score_d"); 
+	if(var.vt != VT_NULL) 
+		theQuestion.score[3] = var.lVal; 
+	
+	return &theQuestion;
+}

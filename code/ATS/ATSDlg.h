@@ -10,6 +10,8 @@
 
 #include "PaperDlg.h"
 #include "Database.h"
+#include "SelectManagerDlg.h"
+#include "StudentManagerDlg.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CATSDlg dialog
@@ -53,6 +55,10 @@ public:
 	bool Login();
 	// 判断是否创建试卷
 	bool CreatePaper();
+	// 判断学生管理界面是否创建成功
+	bool StudentManagerFace();
+	// 判断试卷管理界面是否创建成功
+	bool PaperManagerFace();
 
 	// 字体变量
 	CFont font;
@@ -64,6 +70,8 @@ public:
 	CString className;
 	// 总分数
 	long scoreSum;
+	// 多变量
+	_variant_t var;
 };
 
 //{{AFX_INSERT_LOCATION}}

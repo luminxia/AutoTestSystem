@@ -2,28 +2,32 @@
 
 [General Info]
 Version=1
-LastClass=ScoreDlg
+LastClass=StudentManagerDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=7
+ClassCount=9
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=7
-Resource1=IDD_ATS_DIALOG
+ResourceCount=9
+Resource1=IDD_ABOUTBOX
 Resource2=IDR_MAINFRAME
-Resource3=IDD_SELECT_CLASS_DIALOG
+Resource3=IDD_SCORE_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_ABOUTBOX
+Resource4=IDD_PAPER_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_REGISTER_DIALOG
+Resource5=IDD_ATS_DIALOG
 Class6=PaperDlg
-Resource6=IDD_PAPER_DIALOG
+Resource6=IDD_SELECT_MANAGER_DIALOG
 Class7=ScoreDlg
-Resource7=IDD_SCORE_DIALOG
+Resource7=IDD_REGISTER_DIALOG
+Class8=SelectManagerDlg
+Resource8=IDD_SELECT_CLASS_DIALOG
+Class9=StudentManagerDlg
+Resource9=IDD_STUDENT_MANAGER_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -155,4 +159,37 @@ BaseClass=CDialog
 Filter=D
 LastObject=IDC_BUTTON_S_OK
 VirtualFilter=dWC
+
+[DLG:IDD_SELECT_MANAGER_DIALOG]
+Type=1
+Class=SelectManagerDlg
+ControlCount=3
+Control1=IDC_RADIO_STUDENT_MANAGER,button,1342177289
+Control2=IDC_RADIO_PAPER,button,1342177289
+Control3=IDC_BUTTON_SM_OK,button,1342242816
+
+[CLS:SelectManagerDlg]
+Type=0
+HeaderFile=SelectManagerDlg.h
+ImplementationFile=SelectManagerDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON_SM_OK
+
+[DLG:IDD_STUDENT_MANAGER_DIALOG]
+Type=1
+Class=StudentManagerDlg
+ControlCount=4
+Control1=IDC_LIST_STUDENT,SysListView32,1350631425
+Control2=IDC_STATIC_STUDENT_NUMBER,static,1342308352
+Control3=IDC_EDIT_STUDENT_NUMBER,edit,1350631552
+Control4=IDC_BUTTON_SEARCH,button,1342242816
+
+[CLS:StudentManagerDlg]
+Type=0
+HeaderFile=StudentManagerDlg.h
+ImplementationFile=StudentManagerDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDCANCEL
 

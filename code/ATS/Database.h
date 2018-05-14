@@ -9,6 +9,8 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include "Question.h"
+
 class Database  
 {
 public:
@@ -23,11 +25,19 @@ public:
 	void ExitConnect();
 	// 命令
 	void MyCommand(CString strSql);
+	// 获取记录数量
+	int GetRecordNum(CString fromTable);
+	// 获取问题
+	Question* GetQuestion(long questionId);
 
 	// 连接指针
 	_ConnectionPtr pConnection;
 	// 记录设置指针
 	_RecordsetPtr pRecordset;
+	// 多变量
+	_variant_t var;
+	// 此问题
+	Question theQuestion;
 };
 
 #endif // !defined(AFX_DATABASE_H__0ACB303E_B935_49D3_91B3_B9940B41F716__INCLUDED_)

@@ -260,27 +260,26 @@ void CATSDlg::OnButtonLogin()
 		ScoreDlg sDlg(NULL, m_user_name, className, scoreSum);
 		sDlg.DoModal();
 		
-	//}
-	/*else 
+	}
+	else 
 	{
-		MessageBox("管理员!");
-		SelectMana  managedlg;
-		managedlg.DoModal();
-		if (managedlg.managesel==1)
+		SelectManagerDlg smDlg;
+		smDlg.DoModal();
+		if (smDlg.managerSelect == 1)
 		{
-			//－－－－－学生信息管理－－－－－
-			if(!StuManageFace())
-				MessageBox("学生信息管理报错!!!");
+			// 学生信息管理
+			if(!StudentManagerFace())
+				MessageBox("学生信息管理报错");
 			Invalidate(TRUE);
-			return ;
+			return;
 		}
 		else 
 		{
-			//－－－－－试卷信息管理－－－－－
-			if(!PaperManageFace())
-				MessageBox("试卷信息管理报错!!!");
+			// 试卷信息管理
+			if(!PaperManagerFace())
+				MessageBox("试卷信息管理报错");
 			return ;
-		}*/
+		}
 	}
 	
 	dB.ExitConnect();
@@ -386,5 +385,52 @@ bool CATSDlg::CreatePaper()
 		questionCount++;
 	}
 	dB.pRecordset->Close();
+	return true;
+}
+
+// 判断学生管理界面是否创建成功
+bool CATSDlg::StudentManagerFace()
+{
+	
+	StudentManagerDlg smDlg;
+	smDlg.DoModal();
+	return true;
+}
+
+// 判断试卷管理界面是否创建成功
+bool CATSDlg::PaperManagerFace()
+{
+	SelectClassDlg scDlg;
+	scDlg.DoModal();
+	if(scDlg.selectClass == 1)
+	{
+		className = "英语";	
+	}
+	
+	else
+	{
+		className = "计算机";	
+	}
+	
+	CString strCount = "select count(course_name) from Paper where course_name ='"+className+"'";
+	dB.pRecordset.CreateInstance(__uuidof(Recordset));
+	int idMax = dB.GetRecordNum(strCount);
+	long id=0;	
+	
+	CString strSql = "select * from Paper where course_name ='"+className+"'";
+	dB.MyCommand(strSql);
+	Question *newq = new Question;
+	if (!dB.pRecordset->adoEOF)
+	{
+		newq = dB.GetQuestion(1);
+		id = 1;
+	}
+	
+	dB.pRecordset->Close();
+	
+	//PaperManage  PMdlg(NULL,newq,theid,theidmax,myclassname/*,&theDB*/);
+	
+	//PMdlg.DoModal();
+		
 	return true;
 }
