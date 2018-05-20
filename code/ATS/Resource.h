@@ -13,6 +13,7 @@
 #define IDD_SCORE_DIALOG                132
 #define IDD_SELECT_MANAGER_DIALOG       133
 #define IDD_STUDENT_MANAGER_DIALOG      134
+#define IDD_PAPER_MANAGER_DIALOG        135
 #define IDC_RADIO_STUDENT               1000
 #define IDC_RADIO_ADMINISTRATOR         1001
 #define IDC_STATIC_USER_NAME            1002
@@ -53,14 +54,32 @@
 #define IDC_RADIO_STUDENT_MANAGER       1037
 #define IDC_RADIO_PAPER                 1038
 #define IDC_BUTTON_SM_OK                1039
-#define IDC_LIST_STUDENT				1040
-#define IDC_BUTTON_SEARCH				1041
+#define IDC_LIST_STUDENT                1040
+#define IDC_BUTTON_SEARCH               1041
+#define IDC_STATIC_QUESTION				1042
+#define IDC_STATIC_A                    1043
+#define IDC_STATIC_B                    1044
+#define IDC_STATIC_C                    1045
+#define IDC_STATIC_D                    1046
+#define IDC_EDIT_A                      1047
+#define IDC_EDIT_B                      1048
+#define IDC_EDIT_C                      1049
+#define IDC_EDIT_D                      1050
+#define IDC_COMBO_A                     1051
+#define IDC_COMBO_B                     1052
+#define IDC_COMBO_C                     1053
+#define IDC_COMBO_D                     1054
+#define IDC_EDIT_PAGE                   1055
+#define IDC_BUTTON_ADD                  1056
+#define IDC_BUTTON_DELETE               1057
+#define IDC_BUTTON_MODIFY               1058
+#define IDC_BUTTON_COMPLETE             1059
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        135
+#define _APS_NEXT_RESOURCE_VALUE        136
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           101

@@ -198,7 +198,7 @@ void CATSDlg::OnButtonLogin()
 	if(! Login())
 	{
 		dB.ExitConnect();
-		return;
+		return; 
 	}
 
 	// 身份判断
@@ -216,12 +216,12 @@ void CATSDlg::OnButtonLogin()
 		}
 		
 		dB.pRecordset.CreateInstance(__uuidof(Recordset));
-		CString strSql = "select * from Score where course_name ='"+className+"'and stu_num="+m_user_name+" ";
+		CString strSql = "select * from Score where course_name ='"+className+"'and stu_num='"+m_user_name+"'";
 		dB.MyCommand(strSql);
 
 		if (!dB.pRecordset->adoEOF)
 		{
-			MessageBox("该科成绩已存在");
+			MessageBox("该科成绩已存在！");
 			return;
 		}
 		
@@ -230,14 +230,14 @@ void CATSDlg::OnButtonLogin()
 		// Paper
 		if(!CreatePaper())
 		{
-			MessageBox("CreaePaper Failed !");
+			MessageBox("Create Paper Failed !");
 			return;
 		}
 		else 
 		{
 			// 写入成绩
 			dB.pRecordset.CreateInstance(__uuidof(Recordset));
-			CString sqlstr="select * from Score";
+			CString sqlstr = "select * from Score";
 			dB.GetRecord(sqlstr);
 			
 			try
@@ -248,7 +248,7 @@ void CATSDlg::OnButtonLogin()
 				dB.pRecordset->PutCollect("stu_num", atol(m_user_name));
 				dB.pRecordset->Update();
 				
-				AfxMessageBox("插入成功!");
+				AfxMessageBox("插入成功！");
 			}
 			catch(_com_error *e)
 			{
@@ -263,13 +263,14 @@ void CATSDlg::OnButtonLogin()
 	}
 	else 
 	{
+		MessageBox("管理员！");
 		SelectManagerDlg smDlg;
 		smDlg.DoModal();
 		if (smDlg.managerSelect == 1)
 		{
 			// 学生信息管理
 			if(!StudentManagerFace())
-				MessageBox("学生信息管理报错");
+				MessageBox("学生信息管理报错！");
 			Invalidate(TRUE);
 			return;
 		}
@@ -277,8 +278,9 @@ void CATSDlg::OnButtonLogin()
 		{
 			// 试卷信息管理
 			if(!PaperManagerFace())
-				MessageBox("试卷信息管理报错");
-			return ;
+				MessageBox("试卷信息管理报错！");
+			 Invalidate(TRUE); // Modify
+			return;
 		}
 	}
 	
@@ -292,20 +294,20 @@ bool CATSDlg::Login()
 	UpdateData(TRUE);
 	if(m_user_name.IsEmpty())
 	{
-		AfxMessageBox("用户名不能为空");
+		AfxMessageBox("用户名不能为空！");
 		return false;
 	}
 
 	if(m_password.IsEmpty())
 	{
-		AfxMessageBox("密码不能为空");
+		AfxMessageBox("密码不能为空！");
 		return false;
 	}
 
 	int select = GetCheckedRadioButton(IDC_RADIO_STUDENT, IDC_RADIO_ADMINISTRATOR);
 	if(select == 0)
 	{
-		MessageBox("选择登陆方式");
+		MessageBox("请选择登陆方式！");
 		return false;
 	}
 	else if(select == IDC_RADIO_STUDENT) selectId = Student;
@@ -313,16 +315,18 @@ bool CATSDlg::Login()
 	
 	CString sqlStr;
 	if (selectId == Student)
-		sqlStr = "select * from Student where stu_num=" + m_user_name + " and password= '" + m_password + "'";
+		sqlStr = "select * from Student where stu_num='" + m_user_name + "' and password= '" + m_password + "'";
 	else
-		sqlStr = "select * from Administrator where adm_name=" + m_user_name + " and password= '" + m_password + "'";
+		sqlStr = "select * from Administrator where adm_name='" + m_user_name + "' and password= '" + m_password + "'";
 	
 	dB.pRecordset = dB.GetRecord(sqlStr);
 	if(dB.pRecordset->adoEOF)
 	{
-		MessageBox("用户名不存在!");
+		MessageBox("用户名不存在！");
 		return false;
 	}
+	else
+		MessageBox("登录成功！");
 	
     return true;
 }
@@ -338,7 +342,7 @@ bool CATSDlg::CreatePaper()
 	
 	dB.MyCommand(strSql);
 	
-	int questionCount =0 ;
+	int questionCount = 0 ;
 	
 	_variant_t var;
 	Question q;
@@ -415,11 +419,11 @@ bool CATSDlg::PaperManagerFace()
 	CString strCount = "select count(course_name) from Paper where course_name ='"+className+"'";
 	dB.pRecordset.CreateInstance(__uuidof(Recordset));
 	int idMax = dB.GetRecordNum(strCount);
-	long id=0;	
+	long id = 0;	
 	
 	CString strSql = "select * from Paper where course_name ='"+className+"'";
 	dB.MyCommand(strSql);
-	Question *newq = new Question;
+	Question *newq = new Question(); // Modify
 	if (!dB.pRecordset->adoEOF)
 	{
 		newq = dB.GetQuestion(1);
@@ -428,9 +432,9 @@ bool CATSDlg::PaperManagerFace()
 	
 	dB.pRecordset->Close();
 	
-	//PaperManage  PMdlg(NULL,newq,theid,theidmax,myclassname/*,&theDB*/);
+	PaperManagerDlg  pmDlg(NULL, newq, id, idMax, className/*,&dB*/);
 	
-	//PMdlg.DoModal();
+	pmDlg.DoModal();
 		
 	return true;
 }

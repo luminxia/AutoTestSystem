@@ -38,14 +38,14 @@ void Database::OnInitADOConn()
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox("数据库连接失败");
+		AfxMessageBox("数据库连接失败，请确认数据库是否在当前路径下！");
 	}
 }
 
 // 获得记录
 _RecordsetPtr Database::GetRecord(CString strSql)
 {
-	if (pRecordset==NULL)
+	if (pRecordset == NULL)
 	{
 		OnInitADOConn();
 		
@@ -90,8 +90,8 @@ void Database::MyCommand(CString strSql)
 	pCommand.CreateInstance(__uuidof(Command));
 	pCommand->ActiveConnection = pConnection;
 	pCommand->CommandText = bstrSQL;
-	pRecordset = pCommand->Execute(NULL, NULL,adCmdText);
-	AfxMessageBox("CMD Success!");
+	pRecordset = pCommand->Execute(NULL, NULL, adCmdText);
+	AfxMessageBox("Command Success!");
 }
 
 // 获取记录数量

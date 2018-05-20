@@ -12,6 +12,7 @@
 #include "Database.h"
 #include "SelectManagerDlg.h"
 #include "StudentManagerDlg.h"
+#include "PaperManagerDlg.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CATSDlg dialog

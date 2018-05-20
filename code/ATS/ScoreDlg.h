@@ -14,7 +14,7 @@ class ScoreDlg : public CDialog
 {
 // Construction
 public:
-	ScoreDlg(CWnd* pParent = NULL, CString stu_num = "", CString theClass = "", int score = 0);   // standard constructor
+	ScoreDlg(CWnd* pParent = NULL, CString stu_num = "", CString course_name = "", int score = 0);   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(ScoreDlg)

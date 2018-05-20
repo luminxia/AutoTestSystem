@@ -2,32 +2,34 @@
 
 [General Info]
 Version=1
-LastClass=StudentManagerDlg
+LastClass=PaperManagerDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=9
+ClassCount=10
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=9
-Resource1=IDD_ABOUTBOX
+ResourceCount=10
+Resource1=IDD_SELECT_MANAGER_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_SCORE_DIALOG
+Resource3=IDD_SELECT_CLASS_DIALOG
 Class4=RegisterDlg
-Resource4=IDD_PAPER_DIALOG
+Resource4=IDD_REGISTER_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_ATS_DIALOG
+Resource5=IDD_SCORE_DIALOG
 Class6=PaperDlg
-Resource6=IDD_SELECT_MANAGER_DIALOG
+Resource6=IDD_PAPER_DIALOG
 Class7=ScoreDlg
-Resource7=IDD_REGISTER_DIALOG
+Resource7=IDD_ABOUTBOX
 Class8=SelectManagerDlg
-Resource8=IDD_SELECT_CLASS_DIALOG
+Resource8=IDD_ATS_DIALOG
 Class9=StudentManagerDlg
 Resource9=IDD_STUDENT_MANAGER_DIALOG
+Class10=PaperManagerDlg
+Resource10=IDD_PAPER_MANAGER_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -189,6 +191,41 @@ Control4=IDC_BUTTON_SEARCH,button,1342242816
 Type=0
 HeaderFile=StudentManagerDlg.h
 ImplementationFile=StudentManagerDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON_SEARCH
+
+[DLG:IDD_PAPER_MANAGER_DIALOG]
+Type=1
+Class=PaperManagerDlg
+ControlCount=22
+Control1=IDC_STATIC_QUESTION,static,1342308352
+Control2=IDC_EDIT_QUESTION,edit,1350631552
+Control3=IDC_STATIC_A,static,1342308352
+Control4=IDC_STATIC_B,static,1342308352
+Control5=IDC_STATIC_C,static,1342308352
+Control6=IDC_STATIC_D,static,1342308352
+Control7=IDC_EDIT_A,edit,1350631552
+Control8=IDC_EDIT_B,edit,1350631552
+Control9=IDC_EDIT_C,edit,1350631552
+Control10=IDC_EDIT_D,edit,1350631552
+Control11=IDC_COMBO_A,combobox,1344340226
+Control12=IDC_COMBO_B,combobox,1344340226
+Control13=IDC_COMBO_C,combobox,1344340226
+Control14=IDC_COMBO_D,combobox,1344340226
+Control15=IDC_STATIC,static,1342308352
+Control16=IDC_STATIC,static,1342308352
+Control17=IDC_EDIT_PAGE,edit,1350631552
+Control18=IDC_BUTTON_OK,button,1342242816
+Control19=IDC_BUTTON_ADD,button,1342242816
+Control20=IDC_BUTTON_DELETE,button,1342242816
+Control21=IDC_BUTTON_MODIFY,button,1342242816
+Control22=IDC_BUTTON_COMPLETE,button,1342242816
+
+[CLS:PaperManagerDlg]
+Type=0
+HeaderFile=PaperManagerDlg.h
+ImplementationFile=PaperManagerDlg.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=IDCANCEL

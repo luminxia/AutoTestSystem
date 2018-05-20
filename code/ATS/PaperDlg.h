@@ -59,6 +59,7 @@ public:
 	
 	//Identity selectId;
 	//CString className;
+	//long mainscoresum;
 };
 
 //{{AFX_INSERT_LOCATION}}
