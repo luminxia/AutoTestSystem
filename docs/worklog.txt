@@ -142,3 +142,8 @@
 （3）朱同学完成了SystemDesign.doc文档中数据设计和开发计划的内容
 （4）张同学完成了SystemDesign.doc文档中UML组件图的绘制
 
+周次：11
+日期：5.21
+类型：每周小结
+内容：
+完成填写SystemDesign.doc文档
