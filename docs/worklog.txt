@@ -131,3 +131,14 @@
 内容：
 （1）学习UML组件图、部署图的绘制
 （2）程序的进一步完善
+
+周次：11
+日期：5.20
+类型：项目实际操作
+目的：完成填写SystemDesign.doc文档
+过程：
+（1）创建了SystemDesign.doc文档。
+（2）路同学完成了SystemDesign.doc文档中系统部署和风险分析的内容
+（3）朱同学完成了SystemDesign.doc文档中数据设计和开发计划的内容
+（4）张同学完成了SystemDesign.doc文档中UML组件图的绘制
+
