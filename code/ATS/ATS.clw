@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=PaperManagerDlg
+LastClass=PaperDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
@@ -13,19 +13,19 @@ Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=10
-Resource1=IDD_REGISTER_DIALOG
+Resource1=IDD_SELECT_MANAGER_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_PAPER_DIALOG
+Resource3=IDD_ABOUTBOX
 Class4=RegisterDlg
-Resource4=IDD_SELECT_MANAGER_DIALOG
+Resource4=IDD_REGISTER_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_ATS_DIALOG
+Resource5=IDD_SCORE_DIALOG
 Class6=PaperDlg
-Resource6=IDD_ABOUTBOX
+Resource6=IDD_PAPER_DIALOG
 Class7=ScoreDlg
 Resource7=IDD_STUDENT_MANAGER_DIALOG
 Class8=SelectManagerDlg
-Resource8=IDD_SCORE_DIALOG
+Resource8=IDD_ATS_DIALOG
 Class9=StudentManagerDlg
 Resource9=IDD_SELECT_CLASS_DIALOG
 Class10=PaperManagerDlg
@@ -126,7 +126,7 @@ Type=1
 Class=PaperDlg
 ControlCount=7
 Control1=IDC_STATIC,static,1342308352
-Control2=IDC_EDIT_QUESTION,edit,1342244992
+Control2=IDC_EDIT_QUESTION,edit,1342244932
 Control3=IDC_RADIO_A,button,1342177289
 Control4=IDC_RADIO_B,button,1342177289
 Control5=IDC_RADIO_C,button,1342177289
@@ -139,7 +139,8 @@ HeaderFile=PaperDlg.h
 ImplementationFile=PaperDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_BUTTON_NEXT
+LastObject=PaperDlg
+VirtualFilter=dWC
 
 [DLG:IDD_SCORE_DIALOG]
 Type=1

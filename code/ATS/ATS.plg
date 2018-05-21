@@ -6,50 +6,82 @@
 --------------------Configuration: ATS - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPD385.tmp" with contents
+Creating command line "rc.exe /l 0x804 /fo"Debug/ATS.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\ATS.rc"" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSP5207.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"F:\Git\testgit\AutoTestSystem\code\ATS\Database.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\ATS.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\ATSDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\Database.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\PaperDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\PaperManagerDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\Question.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\RegisterDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\ScoreDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\SelectClassDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\SelectManagerDlg.cpp"
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\StudentManagerDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPD385.tmp" 
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPD386.tmp" with contents
+Creating command line "cl.exe @C:\Users\thinkpad\AppData\Local\Temp\RSP5207.tmp" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSP5208.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\thinkpad\Desktop\软件工程\AutoTestSystem\code\ATS\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\thinkpad\AppData\Local\Temp\RSP5208.tmp" 
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSP5209.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ATS.pdb" /debug /machine:I386 /out:"Debug/ATS.exe" /pdbtype:sept 
-.\Debug\ATS.obj
-.\Debug\ATSDlg.obj
-.\Debug\Database.obj
-.\Debug\PaperDlg.obj
-.\Debug\PaperManagerDlg.obj
-.\Debug\Question.obj
-.\Debug\RegisterDlg.obj
-.\Debug\ScoreDlg.obj
-.\Debug\SelectClassDlg.obj
-.\Debug\SelectManagerDlg.obj
-.\Debug\StdAfx.obj
-.\Debug\StudentManagerDlg.obj
-.\Debug\ATS.res
+".\Debug\ATS.obj"
+".\Debug\ATSDlg.obj"
+".\Debug\Database.obj"
+".\Debug\PaperDlg.obj"
+".\Debug\PaperManagerDlg.obj"
+".\Debug\Question.obj"
+".\Debug\RegisterDlg.obj"
+".\Debug\ScoreDlg.obj"
+".\Debug\SelectClassDlg.obj"
+".\Debug\SelectManagerDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StudentManagerDlg.obj"
+".\Debug\ATS.res"
 ]
-Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPD386.tmp"
+Creating command line "link.exe @C:\Users\thinkpad\AppData\Local\Temp\RSP5209.tmp"
 <h3>Output Window</h3>
+Compiling resources...
 Compiling...
+StdAfx.cpp
+c:\users\thinkpad\desktop\软件工程\autotestsystem\code\ats\debug\msado15.tlh(476) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+Compiling...
+ATS.cpp
+ATSDlg.cpp
 Database.cpp
+PaperDlg.cpp
+PaperManagerDlg.cpp
+Question.cpp
+RegisterDlg.cpp
+ScoreDlg.cpp
+SelectClassDlg.cpp
+SelectManagerDlg.cpp
+StudentManagerDlg.cpp
+Generating Code...
 Linking...
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPD491.tmp" with contents
+Creating temporary file "C:\Users\thinkpad\AppData\Local\Temp\RSP5A85.tmp" with contents
 [
 /nologo /o"Debug/ATS.bsc" 
-.\Debug\StdAfx.sbr
-.\Debug\ATS.sbr
-.\Debug\ATSDlg.sbr
-.\Debug\Database.sbr
-.\Debug\PaperDlg.sbr
-.\Debug\PaperManagerDlg.sbr
-.\Debug\Question.sbr
-.\Debug\RegisterDlg.sbr
-.\Debug\ScoreDlg.sbr
-.\Debug\SelectClassDlg.sbr
-.\Debug\SelectManagerDlg.sbr
-.\Debug\StudentManagerDlg.sbr]
-Creating command line "bscmake.exe @C:\Users\exclu\AppData\Local\Temp\RSPD491.tmp"
+".\Debug\StdAfx.sbr"
+".\Debug\ATS.sbr"
+".\Debug\ATSDlg.sbr"
+".\Debug\Database.sbr"
+".\Debug\PaperDlg.sbr"
+".\Debug\PaperManagerDlg.sbr"
+".\Debug\Question.sbr"
+".\Debug\RegisterDlg.sbr"
+".\Debug\ScoreDlg.sbr"
+".\Debug\SelectClassDlg.sbr"
+".\Debug\SelectManagerDlg.sbr"
+".\Debug\StudentManagerDlg.sbr"]
+Creating command line "bscmake.exe @C:\Users\thinkpad\AppData\Local\Temp\RSP5A85.tmp"
 Creating browse info file...
 <h3>Output Window</h3>
 

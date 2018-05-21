@@ -45,7 +45,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(PaperDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonNext();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
