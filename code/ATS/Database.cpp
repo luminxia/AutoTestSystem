@@ -91,7 +91,7 @@ void Database::MyCommand(CString strSql)
 	pCommand->ActiveConnection = pConnection;
 	pCommand->CommandText = bstrSQL;
 	pRecordset = pCommand->Execute(NULL, NULL, adCmdText);
-	AfxMessageBox("Command Success!");
+	//AfxMessageBox("Command Success!");
 }
 
 // 获取记录数量

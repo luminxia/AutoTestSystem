@@ -208,11 +208,11 @@ void CATSDlg::OnButtonLogin()
 		scDlg.DoModal();
 		if(scDlg.selectClass == 1)
 		{
-			className = "英语";
+			className = "操作系统";
 		}
 		else
 		{
-			className = "计算机";
+			className = "计算机组成原理";
 		}
 		
 		dB.pRecordset.CreateInstance(__uuidof(Recordset));
@@ -233,7 +233,7 @@ void CATSDlg::OnButtonLogin()
 			MessageBox("Create Paper Failed !");
 			return;
 		}
-		else 
+		/*else 
 		{
 			// 写入成绩
 			dB.pRecordset.CreateInstance(__uuidof(Recordset));
@@ -258,7 +258,7 @@ void CATSDlg::OnButtonLogin()
 		
 		// 成绩
 		ScoreDlg sDlg(NULL, m_user_name, className, scoreSum);
-		sDlg.DoModal();
+		sDlg.DoModal();*/
 		
 	}
 	else 
@@ -266,7 +266,7 @@ void CATSDlg::OnButtonLogin()
 		MessageBox("管理员！");
 		SelectManagerDlg smDlg;
 		smDlg.DoModal();
-		if (smDlg.managerSelect == 1)
+		/*if (smDlg.managerSelect == 1)
 		{
 			// 学生信息管理
 			if(!StudentManagerFace())
@@ -281,7 +281,7 @@ void CATSDlg::OnButtonLogin()
 				MessageBox("试卷信息管理报错！");
 			 Invalidate(TRUE); // Modify
 			return;
-		}
+		}*/
 	}
 	
 	dB.ExitConnect();

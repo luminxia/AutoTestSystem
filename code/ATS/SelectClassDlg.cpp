@@ -46,6 +46,22 @@ END_MESSAGE_MAP()
 void SelectClassDlg::OnButtonScOk() 
 {
 	// TODO: Add your control notification handler code here
-	PaperDlg dlg(NULL);
-	dlg.DoModal();
+	UpdateData(TRUE);
+    int s = GetCheckedRadioButton(IDC_RADIO_OPERATING_SYSTEM, IDC_RADIO_COMPOSITION_PRINCIPLE);
+	
+	if(s == 0)
+	{
+		MessageBox("ÇëÑ¡Ôñ¿¼ÊÔ¿ÆÄ¿£¡");
+		return;
+	}
+	else
+	{
+		if(s == IDC_RADIO_OPERATING_SYSTEM)
+			selectClass = 1;
+		else
+			selectClass = 2;
+		UpdateData(TRUE);
+	}
+	
+	OnOK();	
 }
