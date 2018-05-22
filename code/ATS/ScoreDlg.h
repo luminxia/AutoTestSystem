@@ -20,8 +20,8 @@ public:
 	//{{AFX_DATA(ScoreDlg)
 	enum { IDD = IDD_SCORE_DIALOG };
 	CString	m_class;
-	CString	m_score;
 	CString	m_stu_num;
+	int		m_score;
 	//}}AFX_DATA
 
 
@@ -37,7 +37,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(ScoreDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonSOk();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

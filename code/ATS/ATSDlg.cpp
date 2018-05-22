@@ -233,7 +233,7 @@ void CATSDlg::OnButtonLogin()
 			MessageBox("Create Paper Failed !");
 			return;
 		}
-		/*else 
+		else 
 		{
 			// 写入成绩
 			dB.pRecordset.CreateInstance(__uuidof(Recordset));
@@ -248,7 +248,7 @@ void CATSDlg::OnButtonLogin()
 				dB.pRecordset->PutCollect("stu_num", atol(m_user_name));
 				dB.pRecordset->Update();
 				
-				AfxMessageBox("插入成功！");
+				AfxMessageBox("提交成功！");
 			}
 			catch(_com_error *e)
 			{
@@ -258,7 +258,7 @@ void CATSDlg::OnButtonLogin()
 		
 		// 成绩
 		ScoreDlg sDlg(NULL, m_user_name, className, scoreSum);
-		sDlg.DoModal();*/
+		sDlg.DoModal();
 		
 	}
 	else 

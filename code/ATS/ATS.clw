@@ -2,7 +2,11 @@
 
 [General Info]
 Version=1
+<<<<<<< HEAD
+LastClass=ScoreDlg
+=======
 LastClass=PaperDlg
+>>>>>>> 39c10432d7319dbdd37cad95119fcfb85635d710
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
@@ -13,21 +17,33 @@ Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=10
+<<<<<<< HEAD
+Resource1=IDD_ABOUTBOX
+Resource2=IDR_MAINFRAME
+Resource3=IDD_SELECT_MANAGER_DIALOG
+Class4=RegisterDlg
+Resource4=IDD_SELECT_CLASS_DIALOG
+=======
 Resource1=IDD_SELECT_MANAGER_DIALOG
 Resource2=IDR_MAINFRAME
 Resource3=IDD_ABOUTBOX
 Class4=RegisterDlg
 Resource4=IDD_REGISTER_DIALOG
+>>>>>>> 39c10432d7319dbdd37cad95119fcfb85635d710
 Class5=SelectClassDlg
 Resource5=IDD_SCORE_DIALOG
 Class6=PaperDlg
+<<<<<<< HEAD
+Resource6=IDD_REGISTER_DIALOG
+=======
 Resource6=IDD_PAPER_DIALOG
+>>>>>>> 39c10432d7319dbdd37cad95119fcfb85635d710
 Class7=ScoreDlg
 Resource7=IDD_STUDENT_MANAGER_DIALOG
 Class8=SelectManagerDlg
 Resource8=IDD_ATS_DIALOG
 Class9=StudentManagerDlg
-Resource9=IDD_SELECT_CLASS_DIALOG
+Resource9=IDD_PAPER_DIALOG
 Class10=PaperManagerDlg
 Resource10=IDD_PAPER_MANAGER_DIALOG
 
@@ -160,7 +176,7 @@ HeaderFile=ScoreDlg.h
 ImplementationFile=ScoreDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_BUTTON_S_OK
+LastObject=IDC_EDIT_SCORE
 VirtualFilter=dWC
 
 [DLG:IDD_SELECT_MANAGER_DIALOG]
