@@ -266,7 +266,7 @@ void CATSDlg::OnButtonLogin()
 		MessageBox("管理员！");
 		SelectManagerDlg smDlg;
 		smDlg.DoModal();
-		/*if (smDlg.managerSelect == 1)
+		/*if(smDlg.managerSelect == 1)
 		{
 			// 学生信息管理
 			if(!StudentManagerFace())

@@ -35,9 +35,33 @@ void SelectManagerDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(SelectManagerDlg, CDialog)
 	//{{AFX_MSG_MAP(SelectManagerDlg)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDC_BUTTON_SM_OK, OnButtonSmOk)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // SelectManagerDlg message handlers
+
+void SelectManagerDlg::OnButtonSmOk() 
+{
+	// TODO: Add your control notification handler code here
+	int s = GetCheckedRadioButton(IDC_RADIO_STUDENT_MANAGER, IDC_RADIO_PAPER);
+	if(s == 0)
+	{
+		MessageBox("请选择管理对象！");
+		return;
+	}
+	else
+	{
+		if(s == IDC_RADIO_STUDENT_MANAGER)
+		{
+			managerSelect = 1;
+		}
+		else
+		{
+			managerSelect = 2;
+		}
+	}
+	
+	CDialog::OnOK();
+}
