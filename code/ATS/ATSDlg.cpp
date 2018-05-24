@@ -266,7 +266,7 @@ void CATSDlg::OnButtonLogin()
 		MessageBox("管理员！");
 		SelectManagerDlg smDlg;
 		smDlg.DoModal();
-		/*if(smDlg.managerSelect == 1)
+		if(smDlg.managerSelect == 1)
 		{
 			// 学生信息管理
 			if(!StudentManagerFace())
@@ -281,7 +281,7 @@ void CATSDlg::OnButtonLogin()
 				MessageBox("试卷信息管理报错！");
 			 Invalidate(TRUE); // Modify
 			return;
-		}*/
+		}
 	}
 	
 	dB.ExitConnect();
@@ -395,7 +395,6 @@ bool CATSDlg::CreatePaper()
 // 判断学生管理界面是否创建成功
 bool CATSDlg::StudentManagerFace()
 {
-	
 	StudentManagerDlg smDlg;
 	smDlg.DoModal();
 	return true;

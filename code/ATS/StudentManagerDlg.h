@@ -7,6 +7,8 @@
 // StudentManagerDlg.h : header file
 //
 
+#include "Database.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // StudentManagerDlg dialog
 
@@ -15,11 +17,15 @@ class StudentManagerDlg : public CDialog
 // Construction
 public:
 	StudentManagerDlg(CWnd* pParent = NULL);   // standard constructor
+	// 显示学生信息
+	void ShowStudentInfo();
 
 // Dialog Data
 	//{{AFX_DATA(StudentManagerDlg)
 	enum { IDD = IDD_STUDENT_MANAGER_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CListCtrl	m_list;
+	Database dB;
+	long m_stu_num;
 	//}}AFX_DATA
 
 
@@ -35,7 +41,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(StudentManagerDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
