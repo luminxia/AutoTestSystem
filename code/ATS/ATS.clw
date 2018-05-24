@@ -2,34 +2,36 @@
 
 [General Info]
 Version=1
-LastClass=StudentManagerDlg
+LastClass=ModifyStudentDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
 
-ClassCount=10
+ClassCount=11
 Class1=CATSApp
 Class2=CATSDlg
 Class3=CAboutDlg
 
-ResourceCount=10
-Resource1=IDD_ATS_DIALOG
+ResourceCount=11
+Resource1=IDD_PAPER_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_SELECT_MANAGER_DIALOG
+Resource3=IDD_ABOUTBOX
 Class4=RegisterDlg
-Resource4=IDD_REGISTER_DIALOG
+Resource4=IDD_SCORE_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_ABOUTBOX
+Resource5=IDD_REGISTER_DIALOG
 Class6=PaperDlg
-Resource6=IDD_STUDENT_MANAGER_DIALOG
+Resource6=IDD_SELECT_CLASS_DIALOG
 Class7=ScoreDlg
-Resource7=IDD_PAPER_DIALOG
+Resource7=IDD_STUDENT_MANAGER_DIALOG
 Class8=SelectManagerDlg
-Resource8=IDD_SCORE_DIALOG
+Resource8=IDD_PAPER_MANAGER_DIALOG
 Class9=StudentManagerDlg
-Resource9=IDD_SELECT_CLASS_DIALOG
+Resource9=IDD_SELECT_MANAGER_DIALOG
 Class10=PaperManagerDlg
-Resource10=IDD_PAPER_MANAGER_DIALOG
+Resource10=IDD_ATS_DIALOG
+Class11=ModifyStudentDlg
+Resource11=IDD_MODIFY_STUDENT_DIALOG
 
 [CLS:CATSApp]
 Type=0
@@ -195,7 +197,7 @@ HeaderFile=StudentManagerDlg.h
 ImplementationFile=StudentManagerDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_LIST_STUDENT
+LastObject=IDC_BUTTON_SEARCH
 VirtualFilter=dWC
 
 [DLG:IDD_PAPER_MANAGER_DIALOG]
@@ -232,4 +234,36 @@ ImplementationFile=PaperManagerDlg.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=IDCANCEL
+
+[DLG:IDD_MODIFY_STUDENT_DIALOG]
+Type=1
+Class=ModifyStudentDlg
+ControlCount=19
+Control1=IDC_STATIC,static,1342308352
+Control2=IDC_STATIC,static,1342308352
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_STATIC,static,1342308352
+Control5=IDC_STATIC,static,1342308352
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_EDIT_STUDENT_NUMBER,edit,1350633600
+Control8=IDC_EDIT_USER_NAME,edit,1350633600
+Control9=IDC_EDIT_BIRTHDAY,edit,1350633600
+Control10=IDC_EDIT_PASSWORD,edit,1350633600
+Control11=IDC_EDIT_OPERATING_SYSTEM,edit,1350633600
+Control12=IDC_EDIT_COMPOSITION_PRINCIPLE,edit,1350633600
+Control13=IDC_BUTTON_COMPLETE,button,1342242816
+Control14=IDC_BUTTON_STUDENT_NUMBER,button,1342242816
+Control15=IDC_BUTTON_USER_NAME,button,1342242816
+Control16=IDC_BUTTON_BIRTHDAY,button,1342242816
+Control17=IDC_BUTTON_PASSWORD,button,1342242816
+Control18=IDC_BUTTON__OPERATING_SYSTEM,button,1342242816
+Control19=IDC_BUTTON_COMPOSITION_PRINCIPLE,button,1342242816
+
+[CLS:ModifyStudentDlg]
+Type=0
+HeaderFile=ModifyStudentDlg.h
+ImplementationFile=ModifyStudentDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON__OPERATING_SYSTEM
 

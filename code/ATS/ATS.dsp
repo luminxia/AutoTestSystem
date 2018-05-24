@@ -106,6 +106,10 @@ SOURCE=.\Database.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\ModifyStudentDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\PaperDlg.cpp
 # End Source File
 # Begin Source File
@@ -156,6 +160,10 @@ SOURCE=.\ATSDlg.h
 # Begin Source File
 
 SOURCE=.\Database.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ModifyStudentDlg.h
 # End Source File
 # Begin Source File
 

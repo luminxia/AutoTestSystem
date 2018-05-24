@@ -35,6 +35,7 @@ void StudentManagerDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(StudentManagerDlg, CDialog)
 	//{{AFX_MSG_MAP(StudentManagerDlg)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH, OnButtonSearch)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -88,4 +89,14 @@ void StudentManagerDlg::ShowStudentInfo()
 	}
 	
 	dB.pRecordset->Close();
+}
+
+void StudentManagerDlg::OnButtonSearch() 
+{
+	// TODO: Add your control notification handler code here
+	/*UpdateData(TRUE);
+	StudentManagerDlg sm(NULL, m_num);
+	stuinf.DoModal();
+	m_list.DeleteAllItems( );
+	ShowStuInfo();*/
 }
