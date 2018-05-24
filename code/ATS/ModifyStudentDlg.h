@@ -7,6 +7,8 @@
 // ModifyStudentDlg.h : header file
 //
 
+#include "Database.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // ModifyStudentDlg dialog
 
@@ -14,12 +16,17 @@ class ModifyStudentDlg : public CDialog
 {
 // Construction
 public:
-	ModifyStudentDlg(CWnd* pParent = NULL);   // standard constructor
+	ModifyStudentDlg(CWnd* pParent = NULL, CString snum = "");   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(ModifyStudentDlg)
 	enum { IDD = IDD_MODIFY_STUDENT_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_birthday;
+	CString	m_composition_principle;
+	CString	m_operating_system;
+	CString	m_password;
+	CString	m_student_number;
+	CString	m_user_name;
 	//}}AFX_DATA
 
 
@@ -35,9 +42,13 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(ModifyStudentDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	CString stu_num;
+	Database dB;
 };
 
 //{{AFX_INSERT_LOCATION}}

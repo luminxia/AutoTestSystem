@@ -26,6 +26,7 @@ public:
 	CListCtrl	m_list;
 	Database dB;
 	long m_stu_num;
+	CString	m_smd_stu_num;
 	//}}AFX_DATA
 
 

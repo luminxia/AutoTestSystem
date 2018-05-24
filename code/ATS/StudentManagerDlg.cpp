@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ATS.h"
 #include "StudentManagerDlg.h"
+#include "ModifyStudentDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,7 +20,7 @@ StudentManagerDlg::StudentManagerDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(StudentManagerDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(StudentManagerDlg)
-		// NOTE: the ClassWizard will add member initialization here
+	m_smd_stu_num = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -29,6 +30,7 @@ void StudentManagerDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(StudentManagerDlg)
 	DDX_Control(pDX, IDC_LIST_STUDENT, m_list);
+	DDX_Text(pDX, IDC_EDIT_STUDENT_NUMBER, m_smd_stu_num);
 	//}}AFX_DATA_MAP
 }
 
@@ -51,7 +53,7 @@ BOOL StudentManagerDlg::OnInitDialog()
 	m_list.SetExtendedStyle(LVS_EX_FLATSB|LVS_EX_FULLROWSELECT|LVS_EX_GRIDLINES|LVS_EX_HEADERDRAGDROP|LVS_EX_ONECLICKACTIVATE);
 	m_list.InsertColumn(0, "学号", LVCFMT_CENTER, 100, 0);
 	m_list.InsertColumn(1, "姓名", LVCFMT_CENTER, 100, 1);
-	m_list.InsertColumn(2, "科目", LVCFMT_CENTER, 100, 2);
+	m_list.InsertColumn(2, "科目", LVCFMT_CENTER, 200, 2);
 	m_list.InsertColumn(3, "分数", LVCFMT_CENTER, 100, 3);
 	
 	ShowStudentInfo();
@@ -94,9 +96,9 @@ void StudentManagerDlg::ShowStudentInfo()
 void StudentManagerDlg::OnButtonSearch() 
 {
 	// TODO: Add your control notification handler code here
-	/*UpdateData(TRUE);
-	StudentManagerDlg sm(NULL, m_num);
-	stuinf.DoModal();
+	UpdateData(TRUE);
+	ModifyStudentDlg msDlg(NULL, m_smd_stu_num);
+	msDlg.DoModal();
 	m_list.DeleteAllItems( );
-	ShowStuInfo();*/
+	ShowStudentInfo();
 }
