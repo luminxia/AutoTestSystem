@@ -46,6 +46,12 @@ void ModifyStudentDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(ModifyStudentDlg, CDialog)
 	//{{AFX_MSG_MAP(ModifyStudentDlg)
+	ON_BN_CLICKED(IDC_BUTTON_STUDENT_NUMBER, OnButtonStudentNumber)
+	ON_BN_CLICKED(IDC_BUTTON_USER_NAME, OnButtonUserName)
+	ON_BN_CLICKED(IDC_BUTTON_BIRTHDAY, OnButtonBirthday)
+	ON_BN_CLICKED(IDC_BUTTON_OPERATING_SYSTEM, OnButtonOperatingSystem)
+	ON_BN_CLICKED(IDC_BUTTON_PASSWORD, OnButtonPassword)
+	ON_BN_CLICKED(IDC_BUTTON_COMPOSITION_PRINCIPLE, OnButtonCompositionPrinciple)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -123,4 +129,148 @@ BOOL ModifyStudentDlg::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+bool flagsnum = false;
+void ModifyStudentDlg::OnButtonStudentNumber() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flagsnum)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_STUDENT_NUMBER);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_STUDENT_NUMBER);
+		button->SetWindowText("确认修改");
+		flagsnum = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_STUDENT_NUMBER);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_STUDENT_NUMBER);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flagsnum = false;
+	}
+	return;
+}
+
+bool flaguname = false;
+void ModifyStudentDlg::OnButtonUserName() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flaguname)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_USER_NAME);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_USER_NAME);
+		button->SetWindowText("确认修改");
+		flaguname = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_USER_NAME);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_USER_NAME);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flaguname = false;
+	}
+	return;
+}
+
+bool flagbirth = false;
+void ModifyStudentDlg::OnButtonBirthday() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flagbirth)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_BIRTHDAY);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_BIRTHDAY);
+		button->SetWindowText("确认修改");
+		flagbirth = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_BIRTHDAY);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_BIRTHDAY);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flagbirth = false;
+	}
+	return;
+}
+
+bool flagpwd = false;
+void ModifyStudentDlg::OnButtonPassword() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flagpwd)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_PASSWORD);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_PASSWORD);
+		button->SetWindowText("确认修改");
+		flagpwd = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_PASSWORD);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_PASSWORD);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flagpwd = false;
+	}
+	return;
+}
+
+bool flagosystem = false;
+void ModifyStudentDlg::OnButtonOperatingSystem() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flagosystem)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_OPERATING_SYSTEM);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_OPERATING_SYSTEM);
+		button->SetWindowText("确认修改");
+		flagosystem = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_OPERATING_SYSTEM);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_OPERATING_SYSTEM);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flagosystem = false;
+	}
+	return;
+}
+
+bool flagcprinciple = false;
+void ModifyStudentDlg::OnButtonCompositionPrinciple() 
+{
+	// TODO: Add your control notification handler code here
+	if(!flagcprinciple)
+	{
+		CEdit* edit =(CEdit*)GetDlgItem(IDC_EDIT_COMPOSITION_PRINCIPLE);
+		edit->SetReadOnly(FALSE);
+		CButton* button=(CButton*)GetDlgItem(IDC_BUTTON_COMPOSITION_PRINCIPLE);
+		button->SetWindowText("确认修改");
+		flagcprinciple = true;
+	}
+	else
+	{
+		CEdit* edit = (CEdit*)GetDlgItem(IDC_EDIT_COMPOSITION_PRINCIPLE);
+		edit->SetReadOnly(TRUE);
+		CButton* button = (CButton*)GetDlgItem(IDC_BUTTON_COMPOSITION_PRINCIPLE);
+		button->SetWindowText("修改");
+		UpdateData(TRUE);
+		flagcprinciple = false;
+	}
+	return;
 }

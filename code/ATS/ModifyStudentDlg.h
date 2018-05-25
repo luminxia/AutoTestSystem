@@ -43,6 +43,12 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(ModifyStudentDlg)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonStudentNumber();
+	afx_msg void OnButtonUserName();
+	afx_msg void OnButtonBirthday();
+	afx_msg void OnButtonOperatingSystem();
+	afx_msg void OnButtonPassword();
+	afx_msg void OnButtonCompositionPrinciple();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
