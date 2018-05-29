@@ -49,6 +49,7 @@ protected:
 	afx_msg void OnButtonOperatingSystem();
 	afx_msg void OnButtonPassword();
 	afx_msg void OnButtonCompositionPrinciple();
+	afx_msg void OnButtonComplete();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

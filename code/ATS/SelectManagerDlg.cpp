@@ -62,6 +62,5 @@ void SelectManagerDlg::OnButtonSmOk()
 			managerSelect = 2;
 		}
 	}
-	
 	CDialog::OnOK();
 }

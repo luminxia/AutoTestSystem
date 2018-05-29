@@ -52,6 +52,7 @@ BEGIN_MESSAGE_MAP(ModifyStudentDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_OPERATING_SYSTEM, OnButtonOperatingSystem)
 	ON_BN_CLICKED(IDC_BUTTON_PASSWORD, OnButtonPassword)
 	ON_BN_CLICKED(IDC_BUTTON_COMPOSITION_PRINCIPLE, OnButtonCompositionPrinciple)
+	ON_BN_CLICKED(IDC_BUTTON_COMPLETE, OnButtonComplete)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -273,4 +274,78 @@ void ModifyStudentDlg::OnButtonCompositionPrinciple()
 		flagcprinciple = false;
 	}
 	return;
+}
+
+void ModifyStudentDlg::OnButtonComplete() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	
+	CString sql;
+	sql.Format("select stu_num,user_name,password,birthday from Student where stu_num='" + stu_num + "'");
+	dB.OnInitADOConn();
+	dB.GetRecord(sql);
+	
+	dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number)); 	
+	dB.pRecordset->PutCollect("user_name", _variant_t(m_user_name)); 
+	dB.pRecordset->PutCollect("password", _variant_t(m_password)); 
+	dB.pRecordset->PutCollect("birthday", _variant_t(m_birthday)); 
+	dB.pRecordset->Update();
+	dB.pRecordset->Close();
+	
+	sql.Format("select stu_num,score,course_name from Score where stu_num='" + stu_num + "'");
+	
+	dB.GetRecord(sql);
+	
+	int count = 0, score = 0;
+	CString course_name;
+	while(!dB.pRecordset->adoEOF)
+	{
+		count++;
+		dB.pRecordset->MoveNext();
+	}
+	if(count == 0)
+	{
+		m_operating_system = "";
+		m_composition_principle = "";
+	}
+	if(count == 1)
+	{
+		dB.pRecordset->MoveFirst();
+		course_name = (char*)(_bstr_t)dB.pRecordset->GetCollect("course_name");
+		if(course_name.Compare("计算机组成原理") == 0)
+			dB.pRecordset->PutCollect("score", (long)(atol(m_composition_principle)));
+
+		else
+			dB.pRecordset->PutCollect("score", (long)(atol(m_operating_system)));
+
+		dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number));
+	}
+	if(count == 2)
+	{
+		dB.pRecordset->MoveFirst();
+		
+		course_name = (char*)(_bstr_t)dB.pRecordset->GetCollect("course_name");
+		if(course_name.Compare("计算机组成原理") == 0)
+		{
+			dB.pRecordset->PutCollect("score", (long)(atol(m_composition_principle)));
+			dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number));
+			dB.pRecordset->MoveNext();
+			dB.pRecordset->PutCollect("score", (long)(atol(m_operating_system)));
+			dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number));
+		}
+
+		else
+		{
+			dB.pRecordset->PutCollect("score", (long)(atol(m_operating_system)));
+			dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number));
+			dB.pRecordset->MoveNext();
+			dB.pRecordset->PutCollect("score", (long)(atol(m_composition_principle)));
+			dB.pRecordset->PutCollect("stu_num", _variant_t(m_student_number));
+		}
+	}
+	dB.pRecordset->Update();
+	dB.pRecordset->Close();
+	
+	OnOK();
 }

@@ -97,8 +97,7 @@ void StudentManagerDlg::OnButtonSearch()
 {
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
+	OnOK();
 	ModifyStudentDlg msDlg(NULL, m_smd_stu_num);
 	msDlg.DoModal();
-	m_list.DeleteAllItems( );
-	ShowStudentInfo();
 }
