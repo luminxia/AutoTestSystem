@@ -21,7 +21,16 @@ public:
 // Dialog Data
 	//{{AFX_DATA(PaperManagerDlg)
 	enum { IDD = IDD_PAPER_MANAGER_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CComboBox	m_cb_d;
+	CComboBox	m_cb_c;
+	CComboBox	m_cb_b;
+	CComboBox	m_cb_a;
+	long	m_id;
+	CString	m_choice_a;
+	CString	m_choice_b;
+	CString	m_choice_c;
+	CString	m_choice_d;
+	CString	m_question;
 	//}}AFX_DATA
 
 
@@ -40,6 +49,14 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	// 课程名
+	CString myclassName;
+	// 最大题号
+	int myidMax;
+	// 各个选项的分数
+	int score[4];
 };
 
 //{{AFX_INSERT_LOCATION}}

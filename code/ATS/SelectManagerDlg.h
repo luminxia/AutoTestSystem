@@ -15,6 +15,7 @@ class SelectManagerDlg : public CDialog
 // Construction
 public:
 	SelectManagerDlg(CWnd* pParent = NULL);   // standard constructor
+	// 选择的管理选项
 	int managerSelect;
 
 // Dialog Data

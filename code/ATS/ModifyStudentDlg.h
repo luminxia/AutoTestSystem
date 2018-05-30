@@ -54,7 +54,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
+	// Ñ§ºÅ
 	CString stu_num;
+	// Êý¾Ý¿â
 	Database dB;
 };
 

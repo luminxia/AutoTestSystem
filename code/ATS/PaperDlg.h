@@ -57,10 +57,6 @@ public:
 	CString question, a, b, c, d;
 	// ³É¼¨
 	int score[4];
-	
-	//Identity selectId;
-	//CString className;
-	//long mainscoresum;
 };
 
 //{{AFX_INSERT_LOCATION}}

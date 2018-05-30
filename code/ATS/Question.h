@@ -12,14 +12,22 @@
 class Question  
 {
 public:
+	// 题号
 	int questionId;
+	// 问题
 	CString question;
+	// 选项A
 	CString choice_a;
+	// 选项B
 	CString choice_b;
+	// 选项C
 	CString choice_c;
+	// 选项D
 	CString choice_d;
+	// 各选项的分数
 	long score[4];
 
+	// 问题结构体
 	Question()
 	{
 		questionId = 1;

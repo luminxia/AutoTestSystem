@@ -19,8 +19,44 @@ PaperManagerDlg::PaperManagerDlg(CWnd* pParent /*=NULL*/, Question *newq, long i
 	: CDialog(PaperManagerDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(PaperManagerDlg)
-		// NOTE: the ClassWizard will add member initialization here
+	m_id = id;
+	m_choice_a = _T("");
+	m_choice_b = _T("");
+	m_choice_c = _T("");
+	m_choice_d = _T("");
+	m_question = _T("");
+	myclassName = className;
+	myidMax = idMax ;
 	//}}AFX_DATA_INIT
+
+	if(id == 0)
+	{
+		m_id = id;
+		m_question = "";
+		m_choice_a = "";
+		m_choice_b = "";
+		m_choice_c = "";
+		m_choice_d = "";
+		
+		for(int i = 0; i < 4; i++)
+		{
+			score[i]=0;	
+		}
+	}
+	else
+	{
+		m_id = id;
+		m_question = newq->question;
+		m_choice_a = newq->choice_a;
+		m_choice_b = newq->choice_b;
+		m_choice_c = newq->choice_c;
+		m_choice_d = newq->choice_d;
+		
+		for(int i = 0; i < 4; i++)
+		{
+			score[i] = newq->score[i];
+		}
+	}
 }
 
 
@@ -28,7 +64,16 @@ void PaperManagerDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(PaperManagerDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Control(pDX, IDC_COMBO_D, m_cb_d);
+	DDX_Control(pDX, IDC_COMBO_C, m_cb_c);
+	DDX_Control(pDX, IDC_COMBO_B, m_cb_b);
+	DDX_Control(pDX, IDC_COMBO_A, m_cb_a);
+	DDX_Text(pDX, IDC_EDIT_PAGE, m_id);
+	DDX_Text(pDX, IDC_EDIT_A, m_choice_a);
+	DDX_Text(pDX, IDC_EDIT_B, m_choice_b);
+	DDX_Text(pDX, IDC_EDIT_C, m_choice_c);
+	DDX_Text(pDX, IDC_EDIT_D, m_choice_d);
+	DDX_Text(pDX, IDC_EDIT_QUESTION, m_question);
 	//}}AFX_DATA_MAP
 }
 
