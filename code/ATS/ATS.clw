@@ -13,23 +13,23 @@ Class2=CATSDlg
 Class3=CAboutDlg
 
 ResourceCount=11
-Resource1=IDD_REGISTER_DIALOG
+Resource1=IDD_ATS_DIALOG
 Resource2=IDR_MAINFRAME
-Resource3=IDD_PAPER_MANAGER_DIALOG
+Resource3=IDD_ABOUTBOX
 Class4=RegisterDlg
 Resource4=IDD_SELECT_CLASS_DIALOG
 Class5=SelectClassDlg
-Resource5=IDD_ATS_DIALOG
+Resource5=IDD_PAPER_MANAGER_DIALOG
 Class6=PaperDlg
-Resource6=IDD_ABOUTBOX
+Resource6=IDD_STUDENT_MANAGER_DIALOG
 Class7=ScoreDlg
-Resource7=IDD_SCORE_DIALOG
+Resource7=IDD_PAPER_DIALOG
 Class8=SelectManagerDlg
-Resource8=IDD_STUDENT_MANAGER_DIALOG
+Resource8=IDD_SELECT_MANAGER_DIALOG
 Class9=StudentManagerDlg
-Resource9=IDD_PAPER_DIALOG
+Resource9=IDD_REGISTER_DIALOG
 Class10=PaperManagerDlg
-Resource10=IDD_SELECT_MANAGER_DIALOG
+Resource10=IDD_SCORE_DIALOG
 Class11=ModifyStudentDlg
 Resource11=IDD_MODIFY_STUDENT_DIALOG
 
@@ -233,7 +233,7 @@ HeaderFile=PaperManagerDlg.h
 ImplementationFile=PaperManagerDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_BUTTON_ADD
+LastObject=PaperManagerDlg
 VirtualFilter=dWC
 
 [DLG:IDD_MODIFY_STUDENT_DIALOG]

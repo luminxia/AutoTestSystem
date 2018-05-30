@@ -407,12 +407,12 @@ bool CATSDlg::PaperManagerFace()
 	scDlg.DoModal();
 	if(scDlg.selectClass == 1)
 	{
-		className = "英语";	
+		className = "操作系统";	
 	}
 	
 	else
 	{
-		className = "计算机";	
+		className = "计算机组成原理";	
 	}
 	
 	CString strCount = "select count(course_name) from Paper where course_name ='"+className+"'";

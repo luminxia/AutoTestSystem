@@ -8,6 +8,7 @@
 //
 
 #include "Question.h"
+#include "Database.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // PaperManagerDlg dialog
@@ -46,7 +47,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(PaperManagerDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonAdd();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -57,6 +59,12 @@ public:
 	int myidMax;
 	// 各个选项的分数
 	int score[4];
+	// 数据库
+	Database dB;
+	// 增加标志
+	bool addFlag;
+	// 数据库语句
+	CString strSql;
 };
 
 //{{AFX_INSERT_LOCATION}}

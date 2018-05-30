@@ -6,15 +6,13 @@
 --------------------Configuration: ATS - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPC1B4.tmp" with contents
+Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPF7C6.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"F:\Git\testgit\AutoTestSystem\code\ATS\ATS.cpp"
 "F:\Git\testgit\AutoTestSystem\code\ATS\ATSDlg.cpp"
-"F:\Git\testgit\AutoTestSystem\code\ATS\PaperManagerDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPC1B4.tmp" 
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPC1C5.tmp" with contents
+Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPF7C6.tmp" 
+Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPF7C7.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ATS.pdb" /debug /machine:I386 /out:"Debug/ATS.exe" /pdbtype:sept 
 .\Debug\ATS.obj
@@ -32,18 +30,12 @@ Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPC1C5.tmp" with con
 .\Debug\StudentManagerDlg.obj
 .\Debug\ATS.res
 ]
-Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPC1C5.tmp"
+Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPF7C7.tmp"
 <h3>Output Window</h3>
 Compiling...
-PaperManagerDlg.cpp
-Generating Code...
-Compiling...
 ATSDlg.cpp
-Generating Code...
-Skipping... (no relevant changes detected)
-ATS.cpp
 Linking...
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPC4F2.tmp" with contents
+Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPF8C2.tmp" with contents
 [
 /nologo /o"Debug/ATS.bsc" 
 .\Debug\StdAfx.sbr
@@ -59,7 +51,7 @@ Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPC4F2.tmp" with con
 .\Debug\SelectClassDlg.sbr
 .\Debug\SelectManagerDlg.sbr
 .\Debug\StudentManagerDlg.sbr]
-Creating command line "bscmake.exe @C:\Users\exclu\AppData\Local\Temp\RSPC4F2.tmp"
+Creating command line "bscmake.exe @C:\Users\exclu\AppData\Local\Temp\RSPF8C2.tmp"
 Creating browse info file...
 <h3>Output Window</h3>
 
