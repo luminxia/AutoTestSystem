@@ -83,6 +83,7 @@ BEGIN_MESSAGE_MAP(PaperManagerDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_ADD, OnButtonAdd)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnButtonSave)
 	ON_BN_CLICKED(IDC_BUTTON_DELETE, OnButtonDelete)
+	ON_BN_CLICKED(IDC_BUTTON_OK, OnButtonOk)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -286,5 +287,35 @@ void PaperManagerDlg::OnButtonDelete()
 		m_cb_c.SetCurSel(myScore[2]);
 		m_cb_d.SetCurSel(myScore[3]);	
 	}
+	UpdateData(FALSE);
+}
+
+void PaperManagerDlg::OnButtonOk() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	if(m_id > myidMax)
+	{
+		MessageBox("没有那多么多题！");
+		m_id = myidMax;
+	}
+	dB.pRecordset.CreateInstance(__uuidof(Recordset));
+	dB.GetRecord(strSql);
+	dB.GetQuestion(m_id);
+	m_question = dB.theQuestion.question;
+	m_choice_a = dB.theQuestion.choice_a;
+	m_choice_b = dB.theQuestion.choice_b;
+	m_choice_c = dB.theQuestion.choice_c;
+	m_choice_d = dB.theQuestion.choice_d;
+	dB.pRecordset->Close();
+	
+	for(int i = 0; i < 4; i++)
+	{
+		myScore[i] = dB.theQuestion.score[i];
+	}
+	m_cb_a.SetCurSel(myScore[0]);
+	m_cb_b.SetCurSel(myScore[1]);
+	m_cb_c.SetCurSel(myScore[2]);
+	m_cb_d.SetCurSel(myScore[3]);	
 	UpdateData(FALSE);
 }
