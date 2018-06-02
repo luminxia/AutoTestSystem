@@ -50,6 +50,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonAdd();
 	afx_msg void OnButtonSave();
+	afx_msg void OnButtonDelete();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

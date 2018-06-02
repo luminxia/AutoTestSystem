@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(PaperManagerDlg, CDialog)
 	//{{AFX_MSG_MAP(PaperManagerDlg)
 	ON_BN_CLICKED(IDC_BUTTON_ADD, OnButtonAdd)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnButtonSave)
+	ON_BN_CLICKED(IDC_BUTTON_DELETE, OnButtonDelete)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -214,4 +215,76 @@ void PaperManagerDlg::OnButtonSave()
 		AfxMessageBox(e->ErrorMessage());
 		return;
 	}
+}
+
+void PaperManagerDlg::OnButtonDelete() 
+{
+	// TODO: Add your control notification handler code here
+	if(m_id == 0)
+	{
+		MessageBox("无题可删！");
+		return;
+	}
+	dB.pRecordset.CreateInstance(__uuidof(Recordset));
+	dB.pRecordset = dB.GetRecord(strSql);
+	try
+	{
+		dB.pRecordset->MoveFirst();
+		dB.pRecordset->Move(m_id - 1);
+		dB.pRecordset->Delete(adAffectCurrent);					
+		dB.pRecordset->Update();
+		dB.pRecordset->Close();
+		AfxMessageBox( "删除成功!");
+		m_id = m_id - 1;
+		myidMax --;
+		UpdateData(FALSE);
+	} 
+	catch(_com_error *e)
+	{
+		AfxMessageBox(e->ErrorMessage());
+		return;
+	}
+
+	UpdateData(TRUE);
+	
+	if(m_id > 0)
+	{
+		dB.pRecordset.CreateInstance(__uuidof(Recordset));
+		dB.GetRecord(strSql);
+		dB.GetQuestion(m_id);
+		m_question = dB.theQuestion.question;
+		m_choice_a = dB.theQuestion.choice_a;
+		m_choice_b = dB.theQuestion.choice_b;
+		m_choice_c = dB.theQuestion.choice_c;
+		m_choice_d = dB.theQuestion.choice_d;
+		dB.pRecordset->Close();
+		
+		for(int i = 0; i < 4; i++)
+		{
+			myScore[i] = dB.theQuestion.score[i];
+		}
+		m_cb_a.SetCurSel(myScore[0]);
+		m_cb_b.SetCurSel(myScore[1]);
+		m_cb_c.SetCurSel(myScore[2]);
+		m_cb_d.SetCurSel(myScore[3]);
+	}
+	else
+	{
+		m_question = "";
+		m_choice_a = "";
+		m_choice_b = "";
+		m_choice_c = "";
+		m_choice_d = "";
+		
+		for(int i = 0; i < 4; i++)
+		{
+			myScore[i] = 0;
+		}
+		
+		m_cb_a.SetCurSel(myScore[0]);
+		m_cb_b.SetCurSel(myScore[1]);
+		m_cb_c.SetCurSel(myScore[2]);
+		m_cb_d.SetCurSel(myScore[3]);	
+	}
+	UpdateData(FALSE);
 }
