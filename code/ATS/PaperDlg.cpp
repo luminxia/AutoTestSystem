@@ -86,19 +86,19 @@ void PaperDlg::OnButtonNext()
 		switch(s)
 		{
 		case IDC_RADIO_A:
-			scoreSum = scoreSum + score[0];
+			scoreSum = scoreSum + score[0] * 10;
 			break;
 			
 		case IDC_RADIO_B:
-			scoreSum = scoreSum + score[1];
+			scoreSum = scoreSum + score[1] * 10;
 			break;
 			
 		case IDC_RADIO_C:
-			scoreSum = scoreSum + score[2];
+			scoreSum = scoreSum + score[2] * 10;
 			break;
 			
 		case IDC_RADIO_D:
-			scoreSum = scoreSum + score[3];
+			scoreSum = scoreSum + score[3] * 10;
 			break;
 			
 		default:

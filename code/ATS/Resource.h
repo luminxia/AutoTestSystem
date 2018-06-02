@@ -74,6 +74,7 @@
 #define IDC_BUTTON_ADD                  1056
 #define IDC_BUTTON_DELETE               1057
 #define IDC_BUTTON_MODIFY               1058
+#define IDC_BUTTON_SAVE                 1058
 #define IDC_BUTTON_COMPLETE             1059
 #define IDC_EDIT_OPERATING_SYSTEM       1060
 #define IDC_EDIT_COMPOSITION_PRINCIPLE  1061

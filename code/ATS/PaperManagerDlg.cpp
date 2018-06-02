@@ -40,7 +40,7 @@ PaperManagerDlg::PaperManagerDlg(CWnd* pParent /*=NULL*/, Question *newq, long i
 		
 		for(int i = 0; i < 4; i++)
 		{
-			score[i]=0;	
+			myScore[i] = 0;	
 		}
 	}
 	else
@@ -54,7 +54,7 @@ PaperManagerDlg::PaperManagerDlg(CWnd* pParent /*=NULL*/, Question *newq, long i
 		
 		for(int i = 0; i < 4; i++)
 		{
-			score[i] = newq->score[i];
+			myScore[i] = newq->score[i];
 		}
 	}
 }
@@ -80,6 +80,8 @@ void PaperManagerDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(PaperManagerDlg, CDialog)
 	//{{AFX_MSG_MAP(PaperManagerDlg)
+	ON_BN_CLICKED(IDC_BUTTON_ADD, OnButtonAdd)
+	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnButtonSave)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -92,10 +94,10 @@ BOOL PaperManagerDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 	
-	m_cb_a.SetCurSel(score[0]);
-	m_cb_b.SetCurSel(score[1]);
-	m_cb_c.SetCurSel(score[2]);
-	m_cb_d.SetCurSel(score[3]);
+	m_cb_a.SetCurSel(myScore[0]);
+	m_cb_b.SetCurSel(myScore[1]);
+	m_cb_c.SetCurSel(myScore[2]);
+	m_cb_d.SetCurSel(myScore[3]);
 	UpdateData(FALSE);
 
 	dB.OnInitADOConn();
@@ -104,4 +106,112 @@ BOOL PaperManagerDlg::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void PaperManagerDlg::OnButtonAdd() 
+{
+	// TODO: Add your control notification handler code here
+	if(!addFlag)
+	{
+		addFlag = true;
+		
+		m_question = "";
+		m_choice_a = "";
+		m_choice_b = "";
+		m_choice_c = "";
+		m_choice_d = "";
+		
+		for(int i = 0; i < 4; i++)
+		{
+			myScore[i] = 0;
+		}
+		
+		m_cb_a.SetCurSel(myScore[0]);
+		m_cb_b.SetCurSel(myScore[1]);
+		m_cb_c.SetCurSel(myScore[2]);
+		m_cb_d.SetCurSel(myScore[3]);
+
+		SetDlgItemText(IDC_BUTTON_ADD, "确认增加");
+		m_id ++;
+		myidMax ++;
+		UpdateData(FALSE);
+		
+		return;
+	}
+	else
+	{
+		UpdateData(TRUE);
+		myScore[0] = m_cb_a.GetCurSel();
+		myScore[1] = m_cb_b.GetCurSel();
+		myScore[2] = m_cb_c.GetCurSel();
+		myScore[3] = m_cb_d.GetCurSel();
+		
+		dB.GetRecord(strSql);
+		try
+		{
+			dB.pRecordset->AddNew();
+			dB.pRecordset->PutCollect("course_name", _variant_t(myclassName));
+			dB.pRecordset->PutCollect("question", _variant_t(m_question));
+			
+			dB.pRecordset->PutCollect("choice_a", _variant_t(m_choice_a));
+			dB.pRecordset->PutCollect("choice_b", _variant_t(m_choice_b));
+			dB.pRecordset->PutCollect("choice_c", _variant_t(m_choice_c));
+			dB.pRecordset->PutCollect("choice_d", _variant_t(m_choice_d));
+			
+			dB.pRecordset->PutCollect("score_a", (long)(myScore[0]));
+			dB.pRecordset->PutCollect("score_b", (long)(myScore[1]));
+			dB.pRecordset->PutCollect("score_c", (long)(myScore[2]));
+			dB.pRecordset->PutCollect("score_d", (long)(myScore[3]));							
+			dB.pRecordset->Update();
+			
+			AfxMessageBox("插入成功！");
+			dB.pRecordset->Close();
+		}
+		catch(_com_error *e)
+		{
+			AfxMessageBox(e->ErrorMessage());
+			m_id--;
+			return;
+		}
+		addFlag = false;
+		SetDlgItemText(IDC_BUTTON_ADD, "增加新题");
+	}
+}
+
+void PaperManagerDlg::OnButtonSave() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	myScore[0] = m_cb_a.GetCurSel();
+	myScore[1] = m_cb_b.GetCurSel();
+	myScore[2] = m_cb_c.GetCurSel();
+	myScore[3] = m_cb_d.GetCurSel();
+	
+	dB.pRecordset.CreateInstance(__uuidof(Recordset));
+	dB.pRecordset = dB.GetRecord(strSql);
+	try
+	{
+		dB.pRecordset->MoveFirst();
+		dB.pRecordset->Move(m_id - 1);
+		dB.pRecordset->PutCollect("question", _variant_t(m_question));
+		
+		dB.pRecordset->PutCollect("choice_a", _variant_t(m_choice_a));
+		dB.pRecordset->PutCollect("choice_b", _variant_t(m_choice_b));
+		dB.pRecordset->PutCollect("choice_c", _variant_t(m_choice_c));
+		dB.pRecordset->PutCollect("choice_d", _variant_t(m_choice_d));
+
+		dB.pRecordset->PutCollect("score_a", (long)(myScore[0]));
+		dB.pRecordset->PutCollect("score_b", (long)(myScore[1]));
+		dB.pRecordset->PutCollect("score_c", (long)(myScore[2]));
+		dB.pRecordset->PutCollect("score_d", (long)(myScore[3]));								
+		dB.pRecordset->Update();
+		dB.pRecordset->Close();
+		MessageBox("修改成功！");
+		
+	}
+	catch(_com_error *e)
+	{
+		AfxMessageBox(e->ErrorMessage());
+		return;
+	}
 }

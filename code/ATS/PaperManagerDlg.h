@@ -48,6 +48,8 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(PaperManagerDlg)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonAdd();
+	afx_msg void OnButtonSave();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -57,7 +59,7 @@ public:
 	// 最大题号
 	int myidMax;
 	// 各个选项的分数
-	int score[4];
+	int myScore[4];
 	// 数据库
 	Database dB;
 	// 增加标志
