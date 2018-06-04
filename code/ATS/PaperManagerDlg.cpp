@@ -84,6 +84,7 @@ BEGIN_MESSAGE_MAP(PaperManagerDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnButtonSave)
 	ON_BN_CLICKED(IDC_BUTTON_DELETE, OnButtonDelete)
 	ON_BN_CLICKED(IDC_BUTTON_OK, OnButtonOk)
+	ON_BN_CLICKED(IDC_BUTTON_COMPLETE, OnButtonComplete)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -318,4 +319,10 @@ void PaperManagerDlg::OnButtonOk()
 	m_cb_c.SetCurSel(myScore[2]);
 	m_cb_d.SetCurSel(myScore[3]);	
 	UpdateData(FALSE);
+}
+
+void PaperManagerDlg::OnButtonComplete() 
+{
+	// TODO: Add your control notification handler code here
+	OnOK();
 }
