@@ -69,8 +69,8 @@ BOOL PaperDlg::OnInitDialog()
 	SetDlgItemText(IDC_RADIO_D, d);
 	
 	SetTimer(1, 1000, NULL);
-	SetTimer(2, 5000, NULL);
-	SetTimer(3, 10000, NULL);
+	SetTimer(2, 6000, NULL);
+	SetTimer(3, 11000, NULL);
 
 	UpdateData(TRUE);
 
@@ -120,12 +120,12 @@ void PaperDlg::OnTimer(UINT nIDEvent)
 	// TODO: Add your message handler code here and/or call default
 	if((nIDEvent == 1) && startTime)
 	{
-		MessageBox("考试时间为10分钟！");
+		MessageBox("考试时间为10秒钟！");
 		startTime = false;
 	}
 	if((nIDEvent == 2) && endTime)
 	{
-		MessageBox("还剩1分钟结束答题！");
+		MessageBox("还剩3秒钟结束答题！");
 		endTime = false;
 	}
 	if(nIDEvent == 3)

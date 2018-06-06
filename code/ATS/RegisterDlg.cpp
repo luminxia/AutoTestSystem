@@ -15,11 +15,18 @@ static char THIS_FILE[] = __FILE__;
 // RegisterDlg dialog
 
 
-RegisterDlg::RegisterDlg(CWnd* pParent /*=NULL*/)
+RegisterDlg::RegisterDlg(CWnd* pParent /*=NULL*/, Database* dB)
 	: CDialog(RegisterDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(RegisterDlg)
-		// NOTE: the ClassWizard will add member initialization here
+	m_stu_num = _T("");
+	m_name = _T("");
+	m_rpwd = _T("");
+	m_rrpwd = _T("");
+	m_birth = _T("");
+	m_sex = _T("");
+	mydB = dB;
+	repeat = false;
 	//}}AFX_DATA_INIT
 }
 
@@ -28,7 +35,11 @@ void RegisterDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(RegisterDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_EDIT_STUDENT_NUMBER, m_stu_num);
+	DDX_Text(pDX, IDC_EDIT_NAME, m_name);
+	DDX_Text(pDX, IDC_EDIT_REGISTER_PASSWORD, m_rpwd);
+	DDX_Text(pDX, IDC_EDIT_REPEAT_PASSWORD, m_rrpwd);
+	DDX_Text(pDX, IDC_EDIT_BIRTHDAY, m_birth);
 	//}}AFX_DATA_MAP
 }
 
