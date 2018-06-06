@@ -47,6 +47,7 @@ protected:
 	//{{AFX_MSG(PaperDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonNext();
+	afx_msg void OnTimer(UINT nIDEvent);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

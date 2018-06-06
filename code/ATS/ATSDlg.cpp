@@ -334,10 +334,6 @@ bool CATSDlg::Login()
 // ≈–∂œ «∑Ò¥¥Ω® ‘æÌ
 bool CATSDlg::CreatePaper()
 {
-	SetTimer(1, 1000, NULL);
-	SetTimer(2, 540000, NULL);
-	SetTimer(3, 600000, NULL);
-	
 	CString strSql = "select * from Paper where course_name ='"+className+"'";
 	
 	dB.MyCommand(strSql);

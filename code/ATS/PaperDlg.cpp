@@ -49,6 +49,7 @@ void PaperDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(PaperDlg, CDialog)
 	//{{AFX_MSG_MAP(PaperDlg)
 	ON_BN_CLICKED(IDC_BUTTON_NEXT, OnButtonNext)
+	ON_WM_TIMER()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -67,6 +68,10 @@ BOOL PaperDlg::OnInitDialog()
 	SetDlgItemText(IDC_RADIO_C, c);
 	SetDlgItemText(IDC_RADIO_D, d);
 	
+	SetTimer(1, 1000, NULL);
+	SetTimer(2, 5000, NULL);
+	SetTimer(3, 10000, NULL);
+
 	UpdateData(TRUE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -107,3 +112,27 @@ void PaperDlg::OnButtonNext()
 		OnOK();
 	}
 }
+
+bool startTime = true;
+bool endTime = true;
+void PaperDlg::OnTimer(UINT nIDEvent) 
+{
+	// TODO: Add your message handler code here and/or call default
+	if((nIDEvent == 1) && startTime)
+	{
+		MessageBox("考试时间为10分钟！");
+		startTime = false;
+	}
+	if((nIDEvent == 2) && endTime)
+	{
+		MessageBox("还剩1分钟结束答题！");
+		endTime = false;
+	}
+	if(nIDEvent == 3)
+	{
+		MessageBox("考试结束！");
+		OnOK();
+	}
+	CDialog::OnTimer(nIDEvent);
+}
+
