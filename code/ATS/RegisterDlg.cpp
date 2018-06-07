@@ -46,9 +46,15 @@ void RegisterDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(RegisterDlg, CDialog)
 	//{{AFX_MSG_MAP(RegisterDlg)
-		// NOTE: the ClassWizard will add message map macros here
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // RegisterDlg message handlers
+
+void RegisterDlg::OnCancel() 
+{
+	// TODO: Add extra cleanup here
+	cancelFlag = true;
+	CDialog::OnCancel();
+}

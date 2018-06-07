@@ -42,7 +42,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(RegisterDlg)
-		// NOTE: the ClassWizard will add member functions here
+	virtual void OnCancel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -51,6 +51,8 @@ public:
 	Database* mydB;
 	// 重复
 	bool repeat;
+	// 取消标志
+	bool cancelFlag;
 };
 
 //{{AFX_INSERT_LOCATION}}
