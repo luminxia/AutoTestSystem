@@ -43,6 +43,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(RegisterDlg)
 	virtual void OnCancel();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

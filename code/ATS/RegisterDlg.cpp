@@ -52,9 +52,23 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // RegisterDlg message handlers
 
+BOOL RegisterDlg::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+	
+	// TODO: Add extra initialization here
+
+	cancelFlag = false;
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
 void RegisterDlg::OnCancel() 
 {
 	// TODO: Add extra cleanup here
+
 	cancelFlag = true;
+	
 	CDialog::OnCancel();
 }
