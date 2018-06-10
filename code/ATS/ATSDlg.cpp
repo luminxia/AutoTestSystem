@@ -189,42 +189,6 @@ void CATSDlg::OnButtonRegister()
 	// TODO: Add your control notification handler code here
 	RegisterDlg rDlg(NULL, &dB);
 	rDlg.DoModal();
-	
-	
-	/*if (dlg.flagcancel)
-	{
-		return ;
-	}
-	long	 stunum=atol(dlg.m_num);
-	CString  name=dlg.m_name;
-	CString  pwd=dlg.m_pwd;
-	CString  birth=dlg.m_birth;
-	CString  sex=dlg.theSex;
-	
-	//－－－－－－－－－－注册写入数据库－－－－－－－－
-	CString sqlstr="select * from Stu ";
-	theDB.m_pRecordset.CreateInstance(__uuidof(Recordset));
-	theDB.m_pRecordset=theDB.GetRecord(sqlstr);	
-	
-		  try 
-		  { 
-			  theDB.m_pRecordset->AddNew(); 
-			  theDB.m_pRecordset->PutCollect("name", _variant_t(name)); 
-			  theDB.m_pRecordset->PutCollect("pwd", _variant_t(pwd)); 
-			  theDB.m_pRecordset->PutCollect("sex", _variant_t(sex)); 
-			  theDB.m_pRecordset->PutCollect("birth", _variant_t(birth)); 
-			  
-			  theDB.m_pRecordset->PutCollect("num", stunum); 
-			  theDB.m_pRecordset->Update(); 
-			  
-			  AfxMessageBox("插入成功!"); 
-		  } 
-		  catch(_com_error *e) 
-		  { 
-			  AfxMessageBox(e->ErrorMessage()); 
-		  } 
-		  
-		 theDB.m_pRecordset->Close();*/
 }
 
 // 登录
@@ -299,7 +263,6 @@ void CATSDlg::OnButtonLogin()
 	}
 	else 
 	{
-		MessageBox("管理员！");
 		SelectManagerDlg smDlg;
 		smDlg.DoModal();
 		if(smDlg.managerSelect == 1)
@@ -417,6 +380,7 @@ bool CATSDlg::CreatePaper()
 		
 		// finish分数
 		scoreSum += paper.scoreSum;
+		if(paper.flag) break;
 		dB.pRecordset->MoveNext();
 		questionCount++;
 	}

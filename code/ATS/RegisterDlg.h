@@ -44,6 +44,7 @@ protected:
 	//{{AFX_MSG(RegisterDlg)
 	virtual void OnCancel();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnButtonOk();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

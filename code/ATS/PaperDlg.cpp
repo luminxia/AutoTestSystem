@@ -68,8 +68,10 @@ BOOL PaperDlg::OnInitDialog()
 	SetDlgItemText(IDC_RADIO_C, c);
 	SetDlgItemText(IDC_RADIO_D, d);
 	
+	flag = false;
+
 	SetTimer(1, 1000, NULL);
-	SetTimer(2, 6000, NULL);
+	SetTimer(2, 8000, NULL);
 	SetTimer(3, 11000, NULL);
 
 	UpdateData(TRUE);
@@ -131,6 +133,7 @@ void PaperDlg::OnTimer(UINT nIDEvent)
 	if(nIDEvent == 3)
 	{
 		MessageBox("øº ‘Ω· ¯£°");
+		flag = true;
 		OnOK();
 	}
 	CDialog::OnTimer(nIDEvent);

@@ -58,6 +58,8 @@ public:
 	CString question, a, b, c, d;
 	// ³É¼¨
 	int score[4];
+	// ÊÇ·ñ½áÊø
+	bool flag;
 };
 
 //{{AFX_INSERT_LOCATION}}
