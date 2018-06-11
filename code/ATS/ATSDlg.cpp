@@ -90,6 +90,7 @@ BEGIN_MESSAGE_MAP(CATSDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_REGISTER, OnButtonRegister)
 	ON_BN_CLICKED(IDC_BUTTON_LOGIN, OnButtonLogin)
+	ON_WM_CTLCOLOR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -131,6 +132,11 @@ BOOL CATSDlg::OnInitDialog()
 
 	font.CreatePointFont(200, _T("ËÎÌו"));
     GetDlgItem(IDC_STATIC_ATUO_TEST_SYSTEM)->SetFont(&font);
+
+	CBitmap bmp;
+	bmp.LoadBitmap(IDB_BITMAP1);
+    m_brBk.CreatePatternBrush(&bmp);
+    bmp.DeleteObject();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -432,4 +438,22 @@ bool CATSDlg::PaperManagerFace()
 	pmDlg.DoModal();
 		
 	return true;
+}
+
+HBRUSH CATSDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+	
+	// TODO: Change any attributes of the DC here
+	
+	if(nCtlColor == CTLCOLOR_STATIC)
+	{
+		pDC->SetTextColor(RGB(0,0,0));
+		pDC->SetBkMode(TRANSPARENT);
+		hbr=(HBRUSH)GetStockObject(NULL_BRUSH);
+	}
+    if(pWnd == this) return m_brBk;
+
+	// TODO: Return a different brush if the default is not desired
+	return hbr;
 }

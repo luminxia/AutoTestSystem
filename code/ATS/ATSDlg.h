@@ -48,6 +48,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnButtonRegister();
 	afx_msg void OnButtonLogin();
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -73,6 +74,9 @@ public:
 	long scoreSum;
 	// ∂‡±‰¡ø
 	_variant_t var;
+
+	// ±≥æ∞ª≠À¢
+	CBrush m_brBk;
 };
 
 //{{AFX_INSERT_LOCATION}}

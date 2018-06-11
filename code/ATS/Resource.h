@@ -6,6 +6,7 @@
 #define IDD_ABOUTBOX                    100
 #define IDS_ABOUTBOX                    101
 #define IDD_ATS_DIALOG                  102
+#define IDB_BITMAP1                     111
 #define IDR_MAINFRAME                   128
 #define IDD_REGISTER_DIALOG             129
 #define IDD_SELECT_CLASS_DIALOG         130
