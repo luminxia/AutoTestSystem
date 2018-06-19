@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (P.R.C.) resources
+// Chinese (中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -95,7 +95,7 @@ IDD_ATS_DIALOG DIALOGEX 0, 0, 399, 248
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "课程自动测试系统"
-FONT 9, "宋体", 0, 0, 0x1
+FONT 9, "宋体"
 BEGIN
     CONTROL         "学生",IDC_RADIO_STUDENT,"Button",BS_AUTORADIOBUTTON,132,
                     74,49,22
@@ -108,7 +108,7 @@ BEGIN
                     ES_AUTOHSCROLL
     PUSHBUTTON      "登录",IDC_BUTTON_LOGIN,127,169,52,21
     PUSHBUTTON      "注册",IDC_BUTTON_REGISTER,213,169,52,21
-    LTEXT           "课程自动测试系统",IDC_STATIC_ATUO_TEST_SYSTEM,129,19,
+    LTEXT           "课程自动测试系统",IDC_STATIC_ATUO_TEST_SYSTEM,138,29,
                     150,26
 END
 
@@ -444,7 +444,7 @@ BEGIN
     IDS_ABOUTBOX            "关于 ATS(&A)..."
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // Chinese (中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

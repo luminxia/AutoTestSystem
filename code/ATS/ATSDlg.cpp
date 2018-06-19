@@ -15,6 +15,9 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#include "SkinPPWTL.h"
+#pragma comment(lib,"SkinPPWTL.lib")
+
 /////////////////////////////////////////////////////////////////////////////
 // CAboutDlg dialog used for App About
 
@@ -125,6 +128,8 @@ BOOL CATSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	// TODO: Add extra initialization here
+	skinppLoadSkin(_T("AquaOS.ssk")); 
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_ATUO_TEST_SYSTEM)->m_hWnd);
 
 	scoreSum = 0;
 
