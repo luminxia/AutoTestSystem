@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (P.R.C.) resources
+// Chinese (中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -155,7 +155,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "试卷"
 FONT 10, "System"
 BEGIN
-    LTEXT           "10 : 00",IDC_STATIC_COUNTDOWM,225,7,38,15
+    LTEXT           "10 : 00",IDC_STATIC_COUNTDOWM,224,9,38,15
     EDITTEXT        IDC_EDIT_QUESTION,88,27,163,24,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_READONLY | NOT WS_BORDER
     CONTROL         "Radio1",IDC_RADIO_A,"Button",BS_AUTORADIOBUTTON,85,52,
@@ -167,7 +167,7 @@ BEGIN
     CONTROL         "Radio1",IDC_RADIO_D,"Button",BS_AUTORADIOBUTTON,85,118,
                     162,15
     PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,223,155,40,13
-    PUSHBUTTON      "交卷",IDC_BUTTON_SUBMIT,7,155,40,13
+    PUSHBUTTON      "交卷",IDC_BUTTON_SUBMIT,38,155,40,13
     LTEXT           "Question",IDC_STATIC,47,34,38,15
 END
 
@@ -446,7 +446,7 @@ BEGIN
     IDS_ABOUTBOX            "关于 ATS(&A)..."
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // Chinese (中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

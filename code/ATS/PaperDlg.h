@@ -24,7 +24,7 @@ class PaperDlg : public CDialog
 {
 // Construction
 public:
-	PaperDlg(CWnd* pParent = NULL, Question *q = NULL);   // standard constructor
+	PaperDlg(CWnd* pParent = NULL, Question *q = NULL, bool flag = false);   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(PaperDlg)
@@ -65,6 +65,8 @@ public:
 	int minuteten, minute, secondten, second;
 	// ×ÖÌå±äÁ¿
 	CFont font;
+
+	bool f;
 };
 
 //{{AFX_INSERT_LOCATION}}

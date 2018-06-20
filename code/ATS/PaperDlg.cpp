@@ -4,8 +4,6 @@
 #include "stdafx.h"
 #include "ATS.h"
 #include "PaperDlg.h"
-#include "SkinPPWTL.h"
-#pragma comment(lib,"SkinPPWTL.lib")
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -17,7 +15,7 @@ static char THIS_FILE[] = __FILE__;
 // PaperDlg dialog
 
 
-PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/, Question *q)
+PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/, Question *q, bool flag)
 	: CDialog(PaperDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(PaperDlg)
@@ -27,6 +25,7 @@ PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/, Question *q)
 	c = q->choice_c;
 	d = q->choice_d;	
 	scoreSum=0;
+	f = flag;
 	m_countdown = _T("");
 	//}}AFX_DATA_INIT
 
@@ -62,7 +61,7 @@ BOOL PaperDlg::OnInitDialog()
 	CDialog::OnInitDialog();
 	
 	// TODO: Add extra initialization here
-	
+
 	SetDlgItemText(IDC_EDIT_QUESTION, question);
 	SetDlgItemText(IDC_RADIO_A, a);
 	SetDlgItemText(IDC_RADIO_B, b);
@@ -70,23 +69,26 @@ BOOL PaperDlg::OnInitDialog()
 	SetDlgItemText(IDC_RADIO_D, d);
 	
 	flag = false;
-	minuteten = 1;
-	minute = 0;
-	secondten = 0;
-	second = 0;
+	
+	if(f)
+	{
+		minuteten = 1;
+		minute = 0;
+		secondten = 0;
+		second = 0;
+		m_countdown = "10 : 00";
+	}
+	else
+	{
+		m_countdown.Format("%d%d : %d%d", minuteten, minute, secondten, second);
+		UpdateData(FALSE);
+	}
 
 	SetTimer(1, 1000, NULL);
 	SetTimer(2, 540000, NULL);
 	SetTimer(3, 600000, NULL);
 
-	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_COUNTDOWM)->m_hWnd);
-
-	font.CreatePointFont(100, _T("宋体"));
-    GetDlgItem(IDC_STATIC_COUNTDOWM)->SetFont(&font);
-
-	UpdateData(TRUE);
-
-	m_countdown = "10 : 00";
+	UpdateData(TRUE);	
 	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -135,8 +137,8 @@ void PaperDlg::OnTimer(UINT nIDEvent)
 	// TODO: Add your message handler code here and/or call default
 	if((nIDEvent == 1) && startTime)
 	{
-		MessageBox("考试时间为10分钟！");
 		startTime = false;
+		MessageBox("考试时间为10分钟！");
 	}
 	else if(nIDEvent == 1)
 	{

@@ -365,6 +365,7 @@ bool CATSDlg::CreatePaper()
 	
 	_variant_t var;
 	Question q;
+	bool flag = true;
 	
 	while(!dB.pRecordset->adoEOF)
 	{
@@ -399,7 +400,7 @@ bool CATSDlg::CreatePaper()
 		if(var.vt != VT_NULL)
 			q.score[3] = var.lVal;
 		
-		PaperDlg paper(NULL, &q);
+		PaperDlg paper(NULL, &q, flag);
 		paper.DoModal();
 		
 		// finish·ÖÊı
@@ -407,6 +408,7 @@ bool CATSDlg::CreatePaper()
 		if(paper.flag) break;
 		dB.pRecordset->MoveNext();
 		questionCount++;
+		flag = false;
 	}
 	dB.pRecordset->Close();
 	return true;
