@@ -130,7 +130,11 @@ BOOL CATSDlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	skinppLoadSkin(_T("AquaOS.ssk")); 
 	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_ATUO_TEST_SYSTEM)->m_hWnd);
-
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_USER_NAME)->m_hWnd);
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_PASSWORD)->m_hWnd);
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_RADIO_STUDENT)->m_hWnd);
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_RADIO_ADMINISTRATOR)->m_hWnd);
+	
 	scoreSum = 0;
 
 	dB.OnInitADOConn();
@@ -138,10 +142,7 @@ BOOL CATSDlg::OnInitDialog()
 	font.CreatePointFont(200, _T("ËÎÌו"));
     GetDlgItem(IDC_STATIC_ATUO_TEST_SYSTEM)->SetFont(&font);
 
-	CBitmap bmp;
-	bmp.LoadBitmap(IDB_BITMAP1);
-    m_brBk.CreatePatternBrush(&bmp);
-    bmp.DeleteObject();
+
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -184,7 +185,19 @@ void CATSDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CPaintDC  dc(this);  
+		CRect  rect; 
+		GetClientRect(&rect); 
+		CDC dcBmp;
+		dcBmp.CreateCompatibleDC(&dc);
+		CBitmap bmpBackground; 
+		bmpBackground.LoadBitmap(IDB_BITMAP1);
+		BITMAP m_bitmap;
+		bmpBackground.GetBitmap(&m_bitmap);
+		
+		CBitmap *pbmpOld=dcBmp.SelectObject(&bmpBackground);
+		
+		dc.StretchBlt(0,0,rect.Width(),rect.Height(),&dcBmp,0,0,m_bitmap.bmWidth,m_bitmap.bmHeight,SRCCOPY);
 	}
 }
 

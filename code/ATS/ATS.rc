@@ -26,7 +26,7 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP  MOVEABLE PURE   "res\\bg.bmp"
+IDB_BITMAP1             BITMAP  MOVEABLE PURE   "res\\ba.bmp"
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -97,10 +97,10 @@ EXSTYLE WS_EX_APPWINDOW
 CAPTION "课程自动测试系统"
 FONT 9, "宋体"
 BEGIN
-    CONTROL         "学生",IDC_RADIO_STUDENT,"Button",BS_AUTORADIOBUTTON,132,
-                    74,49,22
+    CONTROL         "学生",IDC_RADIO_STUDENT,"Button",BS_AUTORADIOBUTTON,152,
+                    70,49,22
     CONTROL         "管理员",IDC_RADIO_ADMINISTRATOR,"Button",
-                    BS_AUTORADIOBUTTON,213,72,54,28
+                    BS_AUTORADIOBUTTON,233,68,54,28
     LTEXT           "用户名",IDC_STATIC_USER_NAME,109,104,32,13
     EDITTEXT        IDC_EDIT_USER_NAME,151,101,123,17,ES_AUTOHSCROLL
     LTEXT           "密码",IDC_STATIC_PASSWORD,110,133,32,13
