@@ -18,6 +18,7 @@
 #define IDD_MODIFY_STUDENT_DIALOG       136
 #define IDC_RADIO_STUDENT               1000
 #define IDC_RADIO_ADMINISTRATOR         1001
+#define IDC_STATIC_COUNTDOWM            1001
 #define IDC_STATIC_USER_NAME            1002
 #define IDC_EDIT_USER_NAME              1003
 #define IDC_STATIC_PASSWORD             1004
@@ -50,6 +51,7 @@
 #define IDC_BUTTON_NEXT                 1031
 #define IDC_STATIC_SCORE                1032
 #define IDC_STATIC_CLASS                1033
+#define IDC_BUTTON_SUBMIT               1033
 #define IDC_EDIT_SCORE                  1034
 #define IDC_EDIT_CLASS                  1035
 #define IDC_BUTTON_S_OK                 1036
@@ -92,7 +94,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        137
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1001
+#define _APS_NEXT_CONTROL_VALUE         1002
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

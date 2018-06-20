@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (中国) resources
+// Chinese (P.R.C.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -95,7 +95,7 @@ IDD_ATS_DIALOG DIALOGEX 0, 0, 399, 248
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "课程自动测试系统"
-FONT 9, "宋体"
+FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     CONTROL         "学生",IDC_RADIO_STUDENT,"Button",BS_AUTORADIOBUTTON,152,
                     70,49,22
@@ -155,7 +155,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "试卷"
 FONT 10, "System"
 BEGIN
-    LTEXT           "Question",IDC_STATIC,40,27,38,15
+    LTEXT           "10 : 00",IDC_STATIC_COUNTDOWM,225,7,38,15
     EDITTEXT        IDC_EDIT_QUESTION,88,27,163,24,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_READONLY | NOT WS_BORDER
     CONTROL         "Radio1",IDC_RADIO_A,"Button",BS_AUTORADIOBUTTON,85,52,
@@ -167,6 +167,8 @@ BEGIN
     CONTROL         "Radio1",IDC_RADIO_D,"Button",BS_AUTORADIOBUTTON,85,118,
                     162,15
     PUSHBUTTON      "下一题",IDC_BUTTON_NEXT,223,155,40,13
+    PUSHBUTTON      "交卷",IDC_BUTTON_SUBMIT,7,155,40,13
+    LTEXT           "Question",IDC_STATIC,47,34,38,15
 END
 
 IDD_SCORE_DIALOG DIALOG DISCARDABLE  0, 0, 297, 186
@@ -359,9 +361,9 @@ BEGIN
     IDD_PAPER_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 263
         TOPMARGIN, 7
-        BOTTOMMARGIN, 89
+        BOTTOMMARGIN, 168
     END
 
     IDD_SCORE_DIALOG, DIALOG
@@ -444,7 +446,7 @@ BEGIN
     IDS_ABOUTBOX            "关于 ATS(&A)..."
 END
 
-#endif    // Chinese (中国) resources
+#endif    // Chinese (P.R.C.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

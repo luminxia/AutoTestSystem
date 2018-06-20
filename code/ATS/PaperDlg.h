@@ -29,7 +29,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(PaperDlg)
 	enum { IDD = IDD_PAPER_DIALOG };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_countdown;
 	//}}AFX_DATA
 
 
@@ -48,6 +48,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonNext();
 	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnButtonSubmit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -60,6 +61,10 @@ public:
 	int score[4];
 	// 是否结束
 	bool flag;
+	// 倒计时
+	int minuteten, minute, secondten, second;
+	// 字体变量
+	CFont font;
 };
 
 //{{AFX_INSERT_LOCATION}}

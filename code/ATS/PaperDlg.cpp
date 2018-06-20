@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "ATS.h"
 #include "PaperDlg.h"
+#include "SkinPPWTL.h"
+#pragma comment(lib,"SkinPPWTL.lib")
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,15 +21,13 @@ PaperDlg::PaperDlg(CWnd* pParent /*=NULL*/, Question *q)
 	: CDialog(PaperDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(PaperDlg)
-		// NOTE: the ClassWizard will add member initialization here
-
 	question = q->question;
 	a = q->choice_a;
 	b = q->choice_b;
 	c = q->choice_c;
 	d = q->choice_d;	
 	scoreSum=0;
-
+	m_countdown = _T("");
 	//}}AFX_DATA_INIT
 
 	for(int i = 0; i < 4; i++)
@@ -41,7 +41,7 @@ void PaperDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(PaperDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_STATIC_COUNTDOWM, m_countdown);
 	//}}AFX_DATA_MAP
 }
 
@@ -50,6 +50,7 @@ BEGIN_MESSAGE_MAP(PaperDlg, CDialog)
 	//{{AFX_MSG_MAP(PaperDlg)
 	ON_BN_CLICKED(IDC_BUTTON_NEXT, OnButtonNext)
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_BUTTON_SUBMIT, OnButtonSubmit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -69,12 +70,24 @@ BOOL PaperDlg::OnInitDialog()
 	SetDlgItemText(IDC_RADIO_D, d);
 	
 	flag = false;
+	minuteten = 1;
+	minute = 0;
+	secondten = 0;
+	second = 0;
 
 	SetTimer(1, 1000, NULL);
-	SetTimer(2, 8000, NULL);
-	SetTimer(3, 11000, NULL);
+	SetTimer(2, 540000, NULL);
+	SetTimer(3, 600000, NULL);
+
+	skinppSetNoSkinHwnd(GetDlgItem(IDC_STATIC_COUNTDOWM)->m_hWnd);
+
+	font.CreatePointFont(100, _T("宋体"));
+    GetDlgItem(IDC_STATIC_COUNTDOWM)->SetFont(&font);
 
 	UpdateData(TRUE);
+
+	m_countdown = "10 : 00";
+	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
@@ -122,12 +135,49 @@ void PaperDlg::OnTimer(UINT nIDEvent)
 	// TODO: Add your message handler code here and/or call default
 	if((nIDEvent == 1) && startTime)
 	{
-		MessageBox("考试时间为10秒钟！");
+		MessageBox("考试时间为10分钟！");
 		startTime = false;
+	}
+	else if(nIDEvent == 1)
+	{
+		if(second > 0)
+		{
+			second --;
+		}
+		else
+		{
+			second = 9;
+			if(secondten > 0)
+			{
+				secondten --;
+			}
+			else
+			{
+				secondten = 5;
+				if(minute > 0)
+				{
+					minute --;
+				}
+				else
+				{
+					minute = 9;
+					if(minuteten > 0)
+					{
+						minuteten --;
+					}
+					else
+					{
+						nIDEvent = 3;
+					}
+				}
+			}
+		}
+		m_countdown.Format("%d%d : %d%d", minuteten, minute, secondten, second);
+		UpdateData(FALSE);
 	}
 	if((nIDEvent == 2) && endTime)
 	{
-		MessageBox("还剩3秒钟结束答题！");
+		MessageBox("还剩1分钟结束答题！");
 		endTime = false;
 	}
 	if(nIDEvent == 3)
@@ -139,3 +189,10 @@ void PaperDlg::OnTimer(UINT nIDEvent)
 	CDialog::OnTimer(nIDEvent);
 }
 
+
+void PaperDlg::OnButtonSubmit() 
+{
+	// TODO: Add your control notification handler code here
+	flag = true;
+	OnOK();
+}
