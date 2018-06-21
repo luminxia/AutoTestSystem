@@ -80,6 +80,33 @@ void RegisterDlg::OnButtonOk()
 
 	UpdateData(TRUE);
 
+	if(m_stu_num.IsEmpty())
+	{
+		AfxMessageBox("学号不能为空！");
+		return;
+	}
+	if(m_name.IsEmpty())
+	{
+		AfxMessageBox("姓名不能为空！");
+		return;
+	}
+	if(m_rpwd.IsEmpty())
+	{
+		AfxMessageBox("密码不能为空！");
+		return;
+	}
+	
+	if(m_rrpwd.IsEmpty())
+	{
+		AfxMessageBox("确认密码不能为空！");
+		return;
+	}
+	if(m_birth.IsEmpty())
+	{
+		AfxMessageBox("生日不能为空！");
+		return;
+	}
+
 	if(m_stu_num.GetLength() != 3)
 	{
 		MessageBox("学号必须为3位！");

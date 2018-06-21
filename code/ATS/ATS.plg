@@ -6,13 +6,31 @@
 --------------------Configuration: ATS - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPB96B.tmp" with contents
+Creating command line "rc.exe /l 0x804 /fo"Debug/ATS.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\ATS.rc"" 
+Creating temporary file "C:\Users\asuspc\AppData\Local\Temp\RSP20F8.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"F:\Git\testgit\AutoTestSystem\code\ATS\RegisterDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\ATS.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\ATSDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\Database.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\ModifyStudentDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\PaperDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\PaperManagerDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\Question.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\RegisterDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\ScoreDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\SelectClassDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\SelectManagerDlg.cpp"
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\StudentManagerDlg.cpp"
 ]
-Creating command line "cl.exe @C:\Users\exclu\AppData\Local\Temp\RSPB96B.tmp" 
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPB96C.tmp" with contents
+Creating command line "cl.exe @C:\Users\asuspc\AppData\Local\Temp\RSP20F8.tmp" 
+Creating temporary file "C:\Users\asuspc\AppData\Local\Temp\RSP20F9.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/ATS.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\asuspc\Desktop\AutoTestSystem\code\ATS\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\asuspc\AppData\Local\Temp\RSP20F9.tmp" 
+Creating temporary file "C:\Users\asuspc\AppData\Local\Temp\RSP2109.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/ATS.pdb" /debug /machine:I386 /out:"Debug/ATS.exe" /pdbtype:sept 
 .\Debug\ATS.obj
@@ -30,12 +48,28 @@ Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPB96C.tmp" with con
 .\Debug\StudentManagerDlg.obj
 .\Debug\ATS.res
 ]
-Creating command line "link.exe @C:\Users\exclu\AppData\Local\Temp\RSPB96C.tmp"
+Creating command line "link.exe @C:\Users\asuspc\AppData\Local\Temp\RSP2109.tmp"
 <h3>Output Window</h3>
+Compiling resources...
 Compiling...
+StdAfx.cpp
+c:\users\asuspc\desktop\autotestsystem\code\ats\debug\msado15.tlh(476) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+Compiling...
+ATS.cpp
+ATSDlg.cpp
+Database.cpp
+ModifyStudentDlg.cpp
+PaperDlg.cpp
+PaperManagerDlg.cpp
+Question.cpp
 RegisterDlg.cpp
+ScoreDlg.cpp
+SelectClassDlg.cpp
+SelectManagerDlg.cpp
+StudentManagerDlg.cpp
+Generating Code...
 Linking...
-Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPBA96.tmp" with contents
+Creating temporary file "C:\Users\asuspc\AppData\Local\Temp\RSP37DE.tmp" with contents
 [
 /nologo /o"Debug/ATS.bsc" 
 .\Debug\StdAfx.sbr
@@ -51,14 +85,14 @@ Creating temporary file "C:\Users\exclu\AppData\Local\Temp\RSPBA96.tmp" with con
 .\Debug\SelectClassDlg.sbr
 .\Debug\SelectManagerDlg.sbr
 .\Debug\StudentManagerDlg.sbr]
-Creating command line "bscmake.exe @C:\Users\exclu\AppData\Local\Temp\RSPBA96.tmp"
+Creating command line "bscmake.exe @C:\Users\asuspc\AppData\Local\Temp\RSP37DE.tmp"
 Creating browse info file...
 <h3>Output Window</h3>
 
 
 
 <h3>Results</h3>
-ATS.exe - 0 error(s), 0 warning(s)
+ATS.exe - 0 error(s), 1 warning(s)
 </pre>
 </body>
 </html>
