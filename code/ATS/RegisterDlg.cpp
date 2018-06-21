@@ -79,7 +79,26 @@ void RegisterDlg::OnButtonOk()
 	// TODO: Add your control notification handler code here
 
 	UpdateData(TRUE);
-	int select = GetCheckedRadioButton(IDC_RADIO_BOY,IDC_RADIO_GIRL);
+
+	if(m_stu_num.GetLength() != 3)
+	{
+		MessageBox("学号必须为3位！");
+		m_stu_num = "";
+		return;
+	}
+
+	int i;
+	for (i = 0; i < m_stu_num.GetLength(); ++i)
+	{
+		if(m_stu_num[i] >= '0' && m_stu_num <= '9')
+		{
+			continue;
+		}
+		MessageBox("学号必须为数字！");
+		m_stu_num = "";
+		return;
+	}
+
 	if(m_rpwd != m_rrpwd)
 	{
 		MessageBox("两次密码不一致!");
@@ -91,14 +110,33 @@ void RegisterDlg::OnButtonOk()
 		UpdateData(FALSE);
 		return;
 	}
+	
+	if(m_birth.GetLength() != 10)
+	{
+		MessageBox("生日格式为yyyy-mm-dd！");
+		m_birth = "";
+		return;
+	}
+		
+	for (i = 0; i < m_birth.GetLength(); ++i)
+	{
+		if(m_birth[i] >= '0' && m_birth <= '9')
+		{
+			continue;
+		}
+		else if((i == 4 || i == 7) && m_birth[i] == '-')
+		{
+			continue;
+		}
+		MessageBox("生日格式为yyyy-mm-dd！");
+		m_birth = "";
+		return;
+	}
+
+	int select = GetCheckedRadioButton(IDC_RADIO_BOY,IDC_RADIO_GIRL);
 	if(select == 0)
 	{
 		MessageBox("请选择性别！");
-		m_name = "";
-		m_stu_num = "";
-		m_rpwd = "";
-		m_rrpwd = "";
-		m_birth = "";
 		UpdateData(FALSE);
 		return;
 	}

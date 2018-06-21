@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=PaperDlg
+LastClass=RegisterDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "ATS.h"
@@ -104,7 +104,7 @@ HeaderFile=RegisterDlg.h
 ImplementationFile=RegisterDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_BUTTON_OK
+LastObject=IDC_EDIT_STUDENT_NUMBER
 VirtualFilter=dWC
 
 [DLG:IDD_SELECT_CLASS_DIALOG]
