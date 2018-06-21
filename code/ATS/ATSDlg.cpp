@@ -317,7 +317,7 @@ bool CATSDlg::Login()
 	UpdateData(TRUE);
 	if(m_user_name.IsEmpty())
 	{
-		AfxMessageBox("用户名不能为空！");
+		AfxMessageBox("学号不能为空！");
 		return false;
 	}
 

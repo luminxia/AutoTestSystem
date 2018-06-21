@@ -98,7 +98,7 @@ void RegisterDlg::OnButtonOk()
 	
 	if(m_rrpwd.IsEmpty())
 	{
-		AfxMessageBox("确认密码不能为空！");
+		AfxMessageBox("重复密码不能为空！");
 		return;
 	}
 	if(m_birth.IsEmpty())
